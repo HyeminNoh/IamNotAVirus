@@ -1,10 +1,9 @@
 package com.iamnotavirus.web;
 
 import com.google.gson.Gson;
+import com.iamnotavirus.service.patients.PatientsService;
 import com.iamnotavirus.util.WebCrawler;
-import com.iamnotavirus.web.dto.PatientList;
 import lombok.RequiredArgsConstructor;
-import org.jsoup.select.Elements;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,13 +12,21 @@ import java.lang.Object;
 
 @RequiredArgsConstructor
 @RestController
-public class CrawlerApiCotroller {
+public class CrawlerApiController {
+
+    private final PatientsService patientsService;
+
     @ResponseBody
     @RequestMapping("/crawling/patient")
-    public Object PatientResponseDto() throws Exception {
-        Elements elements = new WebCrawler().getPatientsInfo();
-        PatientList patientList = new PatientList(elements);
+    public Object PatientResponse(){
         Gson gson = new Gson();
-        return gson.toJson(patientList);
+        return gson.toJson(patientsService.findAllDesc());
+    }
+
+    @ResponseBody
+    @RequestMapping("/crawling/news/kr")
+    public Object newResponseKr() throws Exception {
+        Object elements = new WebCrawler().getNewsInfoKr();
+        return elements;
     }
 }
