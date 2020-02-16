@@ -7,10 +7,19 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 public class WebCrawler {
-    public Elements getPatientsInfo() throws Exception{
+    public void getPatientsInfo() throws Exception{
         Document document = new WebCrawler().getCrawlingResult("http://ncov.mohw.go.kr/bdBoardList.do?brdId=1&brdGubun=11&dataGubun=&ncvContSeq=&contSeq=&board_id=&gubun=");
         Elements el = document.select(".bvc_txt .s_listin_dot");
-        return el;
+    }
+
+    public Object getNewsInfoKr() throws Exception{
+        Document document = new WebCrawler().getCrawlingResult("https://www.google.com/search?q=%EC%BD%94%EB%A1%9C%EB%82%98+%EC%9D%B8%EC%A2%85%EC%B0%A8%EB%B3%84&hl=ko&source=lnms&tbm=nws&sa=X&ved=2ahUKEwj8krCdnNPnAhWq-GEKHeyfClgQ_AUoAnoECAsQBA&biw=1280&bih=578");
+        Elements el = document.select("#search .bkWMgd");
+        return el.html();
+    }
+
+    public void getNewsInfoUs() throws Exception{
+
     }
 
     public Document getCrawlingResult(String url){
