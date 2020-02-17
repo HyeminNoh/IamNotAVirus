@@ -5,20 +5,11 @@
                 <b-tabs card>
                     <b-tab title="🚨 코로나바이러스감염증-19 예방수칙" active>
                         <b-row class="preventionVideo">
-                            <h5>예방수칙 준수만으로도 코로나 감염확률을 충분히 줄일 수 있습니다!</h5>
+                            <h5>💡 예방수칙 준수만으로도 코로나 감염확률을 충분히 줄일 수 있습니다.</h5>
                             <b-embed
                                     type="iframe"
                                     aspect="16by9"
                                     src="https://www.youtube.com/embed/tDJF0cdJWHo"
-                                    allowfullscreen/>
-                        </b-row>
-                    </b-tab>
-                    <b-tab title="💡 확진자 다녀가면 감염? 제대로 알자!">
-                        <b-row class="preventionVideo">
-                            <b-embed
-                                    type="iframe"
-                                    aspect="16by9"
-                                    src="https://www.youtube.com/embed/3_knz1a2Zuo"
                                     allowfullscreen/>
                         </b-row>
                     </b-tab>
@@ -28,14 +19,17 @@
     </div>
 </template>
 <style lang="css">
+    #Content{
+        margin-top: 5%;
+    }
     #Content #preventionContent{
-        margin: 5%;
+        margin-left: 5%;
         text-align: left;
     }
     #videoCard{
         color: black;
     }
     .preventionVideo{
-        margin: 3%;
+        padding: 3%;
     }
 </style>
