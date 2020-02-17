@@ -25,7 +25,7 @@
                     </div>
                     <div class="text-right" style="margin-top: 50px;">
                         <b-button variant="primary" class="MoreBtn" to="/covid19">코로나19 알아보기</b-button>
-                        <b-button variant="success" class="MoreBtn" to="infection">전세계 현황</b-button>
+                        <b-button variant="success" class="MoreBtn" to="/infection">전세계 현황</b-button>
                     </div>
                 </b-col>
             </b-row>
