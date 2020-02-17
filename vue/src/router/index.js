@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
 import Covid19 from '../views/Covid19.vue'
 import Prevention from '../views/Prevention.vue'
+import Infection from '../views/Infection.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
         path: '/prevention',
         name: 'prevention',
         component: Prevention
+    },
+    {
+        path: '/infection',
+        name: 'infection',
+        component: Infection
     }
 ]
 
