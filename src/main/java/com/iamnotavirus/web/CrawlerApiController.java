@@ -1,7 +1,5 @@
 package com.iamnotavirus.web;
 
-import com.google.gson.Gson;
-import com.iamnotavirus.service.patients.PatientsService;
 import com.iamnotavirus.util.WebCrawler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +11,6 @@ import java.lang.Object;
 @RequiredArgsConstructor
 @RestController
 public class CrawlerApiController {
-
-    private final PatientsService patientsService;
-
-    @ResponseBody
-    @RequestMapping("/crawling/patient")
-    public Object PatientResponse(){
-        Gson gson = new Gson();
-        return gson.toJson(patientsService.findAllDesc());
-    }
 
     @ResponseBody
     @RequestMapping("/crawling/news/kr")
