@@ -16,8 +16,9 @@
                 statusItems: []
             }
         },
-        created () {
-            axios.get('http://happycastle.club/status')
+        mounted () {
+            axios.get('/infection',
+                {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json'}})
                 .then(response => {
                     this.statusItems = response.data
                 })
