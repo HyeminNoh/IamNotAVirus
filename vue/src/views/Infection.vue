@@ -58,10 +58,11 @@
             }
         },
         mounted () {
-            axios.get('/infection',
-                {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json'}})
+            axios.get('http://localhost:8080/infection/data',
+                {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json; charset = utf-8'}})
                 .then(response => {
-                    this.statusItems = response.data;
+                    this.statusItems = JSON.parse(response.data);
+                    //console.log(JSON.parse(response.data));
                 })
                 .catch(e => {
                     console.log('error : ', e)
