@@ -3,9 +3,9 @@ module.exports = {
     indexPath: "../static/index.html",
     devServer: {
         proxy: {
-            "/infection": {
-                "target": 'http://happycastle.club/status',
-                "pathRewrite": { '^/infection': '' },
+            "/": {
+                "target": 'http://localhost:8080/',
+                "pathRewrite": { '^/': '' },
                 "changeOrigin": true
             }
         }
