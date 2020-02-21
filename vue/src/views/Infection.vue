@@ -14,7 +14,7 @@
                             :value="value"
                             :extraValues="extraValues"
                             geojsonIdKey="id"
-                            :geojson="countries"
+                            :geojson="custom"
                             :colorScale="colorScale">
                     </l-choropleth-layer>
                 </l-map>
@@ -30,7 +30,7 @@
     import axios from 'axios'
     import {LMap} from 'vue2-leaflet'
     import { ChoroplethLayer } from 'vue-choropleth'
-    import countries from '../data/countries.geo.json'
+    import custom from '../data/custom.geo.json'
 
     export default {
         name: 'status',
@@ -40,7 +40,7 @@
         },
         data: () => {
             return {
-                countries,
+                custom,
                 colorScale: ["e7d090", "e9ae7b", "de7062"],
                 value: {
                     key: "infected",
