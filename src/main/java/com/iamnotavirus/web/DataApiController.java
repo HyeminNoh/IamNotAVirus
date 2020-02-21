@@ -2,6 +2,8 @@ package com.iamnotavirus.web;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.iamnotavirus.util.WebCrawler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,93 +26,102 @@ public class DataApiController {
 
     @RequestMapping(value="/infection/data", produces = "application/json; charset=utf-8")
     public Object infectionDataResponse() throws Exception{
-        RestTemplate restTemplate = new RestTemplate();
-        String jsonStr = restTemplate.getForObject("http://happycastle.club/status", String.class);
-
         Gson gson = new Gson();
-        // 스트링 데이터 리스트로 변환, 국가 영어 key 값 추가필요
-        Infection[] array = gson.fromJson(jsonStr, Infection[].class);
+        RestTemplate restTemplate = new RestTemplate();
 
-        return gson.toJson(jsonStr);
+        String jsonStr = restTemplate.getForObject("http://happycastle.club/status", String.class);
+        JsonArray convertedObject = gson.fromJson(jsonStr, JsonElement.class).getAsJsonArray();
+
+        //JsonArray 선언
+        JsonArray returnArray = new JsonArray();
+
+        for(int i=0; i<convertedObject.size(); i++){
+            //JsonObject 선언
+            JsonObject returnObject = new JsonObject();
+            JsonElement el = convertedObject.get(i);
+
+            returnObject.addProperty("country", el.getAsJsonObject().get("country").getAsString());
+            returnObject.addProperty("die", el.getAsJsonObject().get("die").getAsString());
+            returnObject.addProperty("infected", el.getAsJsonObject().get("infected").getAsString());
+            returnObject.addProperty("restore", el.getAsJsonObject().get("restore").getAsString());
+            returnObject.addProperty("sus", el.getAsJsonObject().get("sus").getAsString());
+            returnObject.addProperty("postal", postalCheck(el.getAsJsonObject().get("country").getAsString()));
+
+            returnArray.add(returnObject);
+        }
+
+        return gson.toJson(returnArray);
     }
-}
 
-class Infection{
-    String id;
-    String country;
-    int die;
-    int infected;
-    int restore;
-    int sus;
-    Infection(String id, String country, int die, int infected, int restore, int sus){
-        this.country = country;
-        this.die = die;
-        this.infected = infected;
-        this.restore = restore;
-        this.sus = sus;
+    public String postalCheck(String country){
         switch (country){
             case "대한민국":
-                this.id = "KR";
+                return "KR";
             case "중국":
-                this.id = "CN";
+                return "CN";
+            case "일본":
+                return "J";
             case "싱가포르":
-                this.id = "SG";
+                return "SG";
             case "홍콩":
-                this.id = "HK";
+                return "HK";
             case "태국":
-                this.id = "TH";
+                return "TH";
             case "중화민국":
-                this.id = "TW";
+                return "TW";
             case "말레이시아":
-                this.id = "MY";
+                return "MY";
             case "이란":
-                this.id = "IRN";
+                return "IRN";
             case "오스트레일리아":
-                this.id = "AU";
+                return "AU";
             case "독일":
-                this.id = "D";
+                return "D";
             case "베트남":
-                this.id = "";
+                return "VN";
             case "프랑스":
-                this.id = "";
+                return "F";
             case "마카오":
-                this.id = "";
+                return "MO";
             case "영국":
-                this.id = "";
+                return "GB";
             case "아랍에미리트":
-                this.id = "";
+                return "AE";
             case "캐나다":
-                this.id = "";
+                return "CA";
             case "이탈리아":
-                this.id = "ITA";
+                return "I";
             case "필리핀":
-                this.id = "";
+                return "PH";
             case "인도":
-                this.id = "IND";
+                return "IND";
             case "러시아":
-                this.id = "";
+                return "RUS";
             case "스페인":
-                this.id = "";
+                return "E";
             case "스웨덴":
-                this.id = "";
+                return "S";
             case "이스라엘":
-                this.id = "";
+                return "IS";
             case "레바논":
-                this.id = "";
+                return "LB";
             case "네팔":
-                this.id = "";
+                return "NP";
             case "벨기에":
-                this.id = "";
+                return "B";
             case "스리랑카":
-                this.id = "";
+                return "LK";
             case "캄보디아":
-                this.id = "";
+                return "KH";
             case "핀란드":
-                this.id = "";
+                return "AI";
             case "이집트":
-                this.id = "";
+                return "EG";
+            case "합계":
+                return "total";
             default:
-                this.id = "total";
+                return "";
         }
     }
 }
+
