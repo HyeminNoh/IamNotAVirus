@@ -99,11 +99,13 @@
         methods:{
             rowClass(item, type) {
                 if (!item || type !== 'row') return
+                //수정해야됨, 첫줄이랑 둘쨰줄에 색 적용되게
                 if (item.country === '대한민국') return 'table-warning'
+                if (item.country === '중국') return 'table-danger'
             }
         },
         mounted () {
-            axios.get('http://localhost:8080/infection/data',
+            axios.get('/infection/data',
                 {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json; charset = utf-8'}})
                 .then(response => {
                     this.statusItems = response.data;
@@ -122,7 +124,7 @@
         margin-top: 5%;
     }
     #Content #infectionContent{
-        margin-left: 10%;
+        margin-left: 6%;
         text-align: center;
     }
     #map{

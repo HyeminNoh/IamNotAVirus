@@ -39,7 +39,7 @@
         margin-top: 5%;
     }
     #Content #coronaContent{
-        margin-left: 10%;
+        margin-left: 5%;
         text-align: left;
     }
     .card{

@@ -1,9 +1,10 @@
 <template>
     <div>
         <b-container id="Header">
-            <b-navbar>
-                <b-navbar-brand to="/">#IamNotAVirus</b-navbar-brand>
-                <b-navbar-nav>
+            <b-navbar variant="light">
+                <b-navbar-brand style="font-size: 25px" to="/">#IamNotAVirus</b-navbar-brand>
+                <b-navbar-nav style="font-size: 18px">
+                    <b-nav-item><b-link to="/News" class="items">인종차별 관련 기사</b-link></b-nav-item>
                     <b-nav-item><b-link to="/covid19" class="items">코로나19란?</b-link></b-nav-item>
                     <b-nav-item><b-link to="/prevention" class="items">예방법</b-link></b-nav-item>
                     <b-nav-item><b-link to="/infection" class="items">전세계 감염 분포</b-link></b-nav-item>
