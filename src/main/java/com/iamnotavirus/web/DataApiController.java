@@ -6,6 +6,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.iamnotavirus.util.WebCrawler;
 import lombok.RequiredArgsConstructor;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +22,26 @@ public class DataApiController {
     @ResponseBody
     @RequestMapping("/crawling/news/kr")
     public Object newResponseKr() throws Exception {
-        Object elements = new WebCrawler().getNewsInfoKr();
-        return elements;
+        Elements elements = new WebCrawler().getNewsInfoKr();
+
+        Gson gson = new Gson();
+        //JsonArray 선언
+        JsonArray returnArray = new JsonArray();
+
+        for(Element news : elements.select("li")){
+            if(news.select("dt").hasText()) {
+                //JsonObject 선언
+                JsonObject returnObject = new JsonObject();
+
+                returnObject.addProperty("title", news.select("dt").text());
+                returnObject.addProperty("source", news.select("span._sp_each_source").text() + " " + news.select("span.bar").text());
+                returnObject.addProperty("img", news.select("img").attr("abs:src"));
+                returnObject.addProperty("link", news.select("div.thumb>a").attr("abs:href"));
+
+                returnArray.add(returnObject);
+            }
+        }
+        return gson.toJson(returnArray);
     }
 
     @RequestMapping(value="/infection/data", produces = "application/json; charset=utf-8")
