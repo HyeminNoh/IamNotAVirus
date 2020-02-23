@@ -7,6 +7,22 @@
 모든 아시안들이 코로나를 보균했을거라는 생각은 인종 차별적인 생각입니다.  
 신종 코로나에 대해 올바르게 인식하고 예방법을 널리 알리고자 사이트를 기획하게 되었습니다.  
 
+### 결과 화면
+
+##### 메인 화면
+
+![main screenshot](./screenshoot/main_screenshot.png)
+
+##### 뉴스 크롤링 페이지
+
+![news screenshot](./screenshoot/news_screenshot.png)
+
+##### 전세계 감염정보
+
+![infectionmap screenshot](./screenshoot/infectionmap_screenshot.png)
+
+![infectiontable screenshot](./screenshoot/infectiontable_screenshot.png)
+
 ### 구현 내용
 
 * 신종 코로나 설명, 예방법
