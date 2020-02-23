@@ -6,7 +6,7 @@
                     <b-embed
                             type="iframe"
                             aspect="16by9"
-                            src="https://www.youtube.com/embed/BVtt-_0tBa0"
+                            src="https://www.youtube.com/embed/Bkltok5THro"
                             allowfullscreen>
                     </b-embed>
                 </b-col>
@@ -24,6 +24,7 @@
                         </p>
                     </div>
                     <div class="text-right" style="margin-top: 50px;">
+                        <b-button variant="danger" class="MoreBtn" to="/News">인종차별 관련 뉴스</b-button>
                         <b-button variant="primary" class="MoreBtn" to="/covid19">코로나19 알아보기</b-button>
                         <b-button variant="success" class="MoreBtn" to="/infection">전세계 현황</b-button>
                     </div>
@@ -37,7 +38,7 @@
         margin-top: 5%;
     }
     #Content #mainContent{
-        margin-left: 8%;
+        margin-left: 6%;
     }
     .MoreBtn{
         margin: 5px;
