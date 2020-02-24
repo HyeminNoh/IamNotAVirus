@@ -18,15 +18,15 @@
     
 ### 3. 결과 화면
 
-##### 메인 화면
+#### 1) 메인 화면
 
 ![main screenshot](./screenshoot/main_screenshot.png)
 
-##### 뉴스 크롤링 페이지
+#### 2) 뉴스 크롤링 페이지
 
 ![news screenshot](./screenshoot/news_screenshot.png)
 
-##### 전세계 감염정보
+#### 3)전세계 감염정보
 
 ![infectionmap screenshot](./screenshoot/infectionmap_screenshot.png)
 
