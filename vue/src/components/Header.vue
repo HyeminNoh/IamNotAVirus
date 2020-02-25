@@ -20,28 +20,23 @@
             </b-navbar>
         </b-container>
         <!-- The modal -->
-        <b-modal id="support-modal" ok-only title="👍 #IAmNotAVirus를 응원해주세요" >
+        <b-modal ref="support-modal" id="support-modal" hide-footer title="👍 #IAmNotAVirus를 응원해주세요" >
             <b-container style="margin: 5px">
                 <p>이 운동에 대해 지지한다면, <br>
                     링크를 공유해 이 사이트를 다른 사람에게 공유해주세요😇</p>
                 <p id="url-txt" style="color: lightslategray; text-align: center">URL: {{url}}</p>
                 <div id="sns-btn" class="col text-center">
-                    <b-button  v-clipboard:copy="url"
+                    <b-button block v-clipboard:copy="url"
                                v-clipboard:success="urlCopy"
-                               v-clipboard:error="onError">url<br>복사</b-button>
-                    <b-button variant="info">트위터<br>공유하기</b-button>
-                    <b-button variant="primary">페이스북<br>공유하기</b-button>
-                    <b-button variant="warning" v-on:click="postKakao">카카오톡<br>공유하기</b-button>
+                               v-clipboard:error="onError">url 복사</b-button>
                 </div>
             </b-container>
         </b-modal>
     </div>
 </template>
 <script>
-    import axios from 'axios'
-
     export default {
-        name: 'snsSharing',
+        name: 'urlSharing',
         data: () => {
             return {
                 url: document.URL
@@ -50,14 +45,10 @@
         methods:{
             urlCopy: function (e) {
                 this.url = e.text;
-                alert('복사 성공')
+                this.$refs['support-modal'].hide();
             },
             onError: function () {
-                console.log('복사 실패')
-            },
-            postKakao: ()=>{
-                axios.post('/post/sns/kakao',{'url':document.URL})
-                    .then(res => { console.log(res.data) })
+                alert('복사 실패')
             }
         }
     }
@@ -75,8 +66,5 @@
         outline: none;
         font-weight: bold;
         color: #2c7bdc;
-    }
-    #sns-btn >button{
-        margin: 5px;
     }
 </style>
