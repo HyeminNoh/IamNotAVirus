@@ -3,10 +3,10 @@
         <b-container id="newsContent">
             <b-row>
                 <b-col>
-                    <h3 style="text-align: left">📰 인종차별 관련 기사</h3>
+                    <h3 style="text-align: left">📰 {{$t('header.news')}}</h3>
                 </b-col>
                 <b-col style="text-align: right; margin-right: 2%">
-                    <b-button variant="outline-success" target="_blank" href="https://search.naver.com/search.naver?query=%EC%BD%94%EB%A1%9C%EB%82%98+%EC%9D%B8%EC%A2%85%EC%B0%A8%EB%B3%84&where=news&ie=utf8&sm=nws_hty">뉴스 더보기</b-button>
+                    <b-button variant="outline-success" target="_blank" :href="$t('news.more-data')">{{$t('news.more-info')}}</b-button>
                 </b-col>
             </b-row>
 
@@ -18,7 +18,7 @@
                                 <h4 id="news-title">{{item.title}}</h4>
                             </a>
                             <br>
-                            <h6>출처: {{item.source}}</h6>
+                            <h6>{{item.source}}</h6>
                         </b-card-text>
                 </b-card>
             </b-row>
@@ -31,21 +31,38 @@
 
     export default {
         name: 'news',
-        data: () => {
+        data() {
             return {
+                locale: this.$i18n.locale,
                 newsList: []
             }
         },
-        mounted () {
-            axios.get('/crawling/news/kr',
-                {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json; charset = utf-8'}})
-                .then(response => {
-                    this.newsList = response.data;
-                    console.log(response.data);
-                })
-                .catch(e => {
-                    console.log('error : ', e)
-                })
+        methods:{
+            getData(){
+                axios.get('/crawling/news/' + this.$t('language'),
+                    {
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                            'Content-Type': 'application/json; charset = utf-8'
+                        }
+                    })
+                    .then(response => {
+                        this.newsList = response.data;
+                        console.log(response.data);
+                    })
+                    .catch(e => {
+                        console.log('error : ', e)
+                    })
+            }
+        },
+        watch: {
+            locale: function (val) {
+                this.$i18n.locale = val;
+                this.getData();
+            }
+        },
+        mounted() {
+            this.getData();
         }
     }
 </script>

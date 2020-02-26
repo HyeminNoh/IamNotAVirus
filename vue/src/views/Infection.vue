@@ -1,7 +1,7 @@
 <template>
     <div id="Content">
         <b-container id="infectionContent">
-            <h3 style="text-align: left; margin-bottom: 4%">🗺️ 전세계 감염 정보</h3>
+            <h3 style="text-align: left; margin-bottom: 4%">🗺️ {{$t('infection.title')}}</h3>
             <div id="map">
                 <l-map
                         :center="[39, 127]"
@@ -21,19 +21,25 @@
                             <l-info-control
                                     :item="props.currentItem"
                                     :unit="props.unit"
-                                    title="국가별 정보"
-                                    placeholder="지도 위에 커서를 올려주세요"/>
+                                    :title="$t('infection.countryInfo')"
+                                    :placeholder="$t('infection.placeholder')"/>
                         </template>
                     </l-choropleth-layer>
                 </l-map>
             </div>
             <b-row>
                 <div id="tableBtn">
-                    <b-button block variant="outline-secondary" v-if="!isHidden" v-on:click="isHidden = !isHidden">표 숨기기</b-button>
-                    <b-button block variant="outline-danger" v-if="isHidden" v-on:click="isHidden = !isHidden">전세계 감염 정보</b-button>
+                    <b-button block variant="outline-secondary" v-if="!isHidden" v-on:click="isHidden = !isHidden">{{$t('infection.hidden-table')}}</b-button>
+                    <b-button block variant="outline-danger" v-if="isHidden" v-on:click="isHidden = !isHidden">{{$t('infection.show-table')}}</b-button>
                 </div>
-                <div v-if="!isHidden" id="infectionTable">
-                    <b-table bordered outlined hover :items="statusItems" :fields="fields" head-variant="light" :tbody-tr-class="rowClass"></b-table>
+                <div v-if="!isHidden" id="infectionTable" >
+                    <b-table bordered outlined hover
+                             :items="statusItems"
+                             :fields="fields"
+                             head-variant="light"
+                             :tbody-tr-class="rowClass"
+                             :sort-by.sync="sortBy"
+                             :sort-desc.sync="sortDesc"></b-table>
                 </div>
             </b-row>
         </b-container>
@@ -53,17 +59,18 @@
             'l-choropleth-layer': ChoroplethLayer,
             'l-info-control': InfoControl
         },
-        data: () => {
+        data () {
             return {
+                locale: this.$i18n.locale,
                 custom,
                 colorScale: ["e7d090", "de7062"],
                 value: {
                     key: "infected",
-                    metric: "명 감염"
+                    metric: this.$t('infection.infect-info')
                 },
                 extraValues: [{
                     key: "die",
-                    metric: "명 사망"
+                    metric: this.$t('infection.die-info')
                 }],
                 mapOptions: {
                     attributionControl: false
@@ -72,36 +79,37 @@
                 statusItems: [],
                 fields: [
                     {
-                    key: 'country',
-                    label: '국가'
+                        key: 'country',
+                        label: this.$t('infection.country-label')
                     },
                     {
                         key: 'infected',
-                        label: '확진'
+                        label: this.$t('infection.infected-label')
                     },
                     {
                         key: 'die',
-                        label: '사망'
+                        label: this.$t('infection.die-label')
                     },
                     {
                         key: 'restore',
-                        label: '완치'
+                        label: this.$t('infection.restore-label')
                     },
                     {
                         key: 'sus',
-                        label: '의심'
+                        label: this.$t('infection.sus-label')
                     },
-                ]
-                ,
-                isHidden: false
+                ],
+                isHidden: false,
+                sortBy: 'infected',
+                sortDesc: true
+
             }
         },
         methods:{
             rowClass(item, type) {
-                if (!item || type !== 'row') return
-                //수정해야됨, 첫줄이랑 둘쨰줄에 색 적용되게
-                if (item.country === '대한민국') return 'table-warning'
-                if (item.country === '중국') return 'table-danger'
+                if (!item || type !== 'row') return;
+                if (item.country === '대한민국') return 'table-warning';
+                if (item.country === '중국') return 'table-danger';
             }
         },
         mounted () {
@@ -114,6 +122,11 @@
                 .catch(e => {
                     console.log('error : ', e)
                 })
+        },
+        watch: {
+            locale (val) {
+                this.$i18n.locale = val;
+            }
         }
     }
 </script>

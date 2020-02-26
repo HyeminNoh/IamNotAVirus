@@ -1,32 +1,45 @@
 <template>
     <div id="Content">
         <b-container id="preventionContent">
-            <b-card id="videoCard" no-body>
-                <b-tabs card>
-                    <b-tab title="🚨 코로나바이러스감염증-19 예방수칙" active>
-                        <b-row class="preventionVideo">
-                            <h5>💡 예방수칙 준수만으로도 코로나 감염확률을 충분히 줄일 수 있습니다.</h5>
-                            <b-embed
-                                    type="iframe"
-                                    aspect="16by9"
-                                    src="https://www.youtube.com/embed/tDJF0cdJWHo"
-                                    allowfullscreen/>
-                        </b-row>
-                    </b-tab>
-                </b-tabs>
+            <h3>🚨 {{$t('prevention.title')}}</h3>
+            <b-card id="videoCard" header-tag="header">
+                <template v-slot:header>
+                    <h5 class="mb-0">💡 {{$t('prevention.sub-title')}}</h5>
+                </template>
+                <b-row class="preventionVideo">
+                    <b-embed
+                            type="iframe"
+                            aspect="16by9"
+                            :src="$t('prevention.src')"
+                            allowfullscreen/>
+                </b-row>
             </b-card>
         </b-container>
     </div>
 </template>
+<script>
+    export default {
+        name: 'prevention',
+        data () {
+            return { locale: this.$i18n.locale }
+        },
+        watch: {
+            locale (val) {
+                this.$i18n.locale = val
+            }
+        }
+    }
+</script>
 <style lang="css">
     #Content{
         margin-top: 5%;
     }
     #Content #preventionContent{
-        margin-left: 3%;
+        margin-left: 5%;
         text-align: left;
     }
     #videoCard{
+        margin-left: 1%;
         color: black;
     }
     .preventionVideo{
