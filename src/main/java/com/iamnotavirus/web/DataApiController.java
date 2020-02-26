@@ -20,9 +20,9 @@ import java.lang.Object;
 public class DataApiController {
 
     @ResponseBody
-    @RequestMapping("/crawling/news/kr")
-    public Object newResponseKr() throws Exception {
-        Elements elements = new WebCrawler().getNewsInfoKr();
+    @RequestMapping("/crawling/news/ko")
+    public Object newResponseKo() throws Exception {
+        Elements elements = new WebCrawler().getNewsInfoKo();
 
         Gson gson = new Gson();
         //JsonArray 선언
@@ -44,6 +44,34 @@ public class DataApiController {
         return gson.toJson(returnArray);
     }
 
+    @ResponseBody
+    @RequestMapping("/crawling/news/en")
+    public Object newResponseEn() throws Exception {
+        Elements elements = new WebCrawler().getNewsInfoEn();
+
+        Gson gson = new Gson();
+
+        //JsonArray 선언
+        JsonArray returnArray = new JsonArray();
+
+        for(Element news : elements.select("div.g")){
+            if(news.select("h3").hasText()) {
+                //JsonObject 선언
+                JsonObject returnObject = new JsonObject();
+
+                returnObject.addProperty("title", news.select("h3").text());
+                returnObject.addProperty("source", news.select("div.slp").text());
+                returnObject.addProperty("img", news.select("img").attr("abs:src"));
+                returnObject.addProperty("link", news.select("div>h3>a").attr("abs:href"));
+
+                returnArray.add(returnObject);
+            }
+        }
+        return gson.toJson(returnArray);
+
+        //return elements.html();
+    }
+
     @RequestMapping(value="/infection/data", produces = "application/json; charset=utf-8")
     public Object infectionDataResponse() throws Exception{
         Gson gson = new Gson();
@@ -55,7 +83,7 @@ public class DataApiController {
         //JsonArray 선언
         JsonArray returnArray = new JsonArray();
 
-        for(int i=0; i<convertedObject.size(); i++){
+        for(int i=0; i<convertedObject.size()-2; i++){
             //JsonObject 선언
             JsonObject returnObject = new JsonObject();
             JsonElement el = convertedObject.get(i);
@@ -71,6 +99,77 @@ public class DataApiController {
         }
 
         return gson.toJson(returnArray);
+    }
+
+    public String countryEng(String country){
+        switch (country){
+            case "대한민국":
+                return "KOREA";
+            case "중국":
+                return "CHINA";
+            case "일본":
+                return "JAPAN";
+            case "싱가포르":
+                return "SG";
+            case "홍콩":
+                return "HK";
+            case "태국":
+                return "TH";
+            case "중화민국":
+                return "TW";
+            case "말레이시아":
+                return "MY";
+            case "이란":
+                return "IRN";
+            case "오스트레일리아":
+                return "AU";
+            case "독일":
+                return "D";
+            case "베트남":
+                return "VN";
+            case "프랑스":
+                return "F";
+            case "마카오":
+                return "MO";
+            case "영국":
+                return "GB";
+            case "아랍에미리트":
+                return "AE";
+            case "캐나다":
+                return "CA";
+            case "이탈리아":
+                return "I";
+            case "필리핀":
+                return "PH";
+            case "인도":
+                return "IND";
+            case "러시아":
+                return "RUS";
+            case "스페인":
+                return "E";
+            case "스웨덴":
+                return "S";
+            case "이스라엘":
+                return "IS";
+            case "레바논":
+                return "LB";
+            case "네팔":
+                return "NP";
+            case "벨기에":
+                return "B";
+            case "스리랑카":
+                return "LK";
+            case "캄보디아":
+                return "KH";
+            case "핀란드":
+                return "AI";
+            case "이집트":
+                return "EG";
+            case "합계":
+                return "total";
+            default:
+                return "";
+        }
     }
 
     public String postalCheck(String country){
