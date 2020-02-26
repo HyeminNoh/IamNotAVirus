@@ -1,9 +1,7 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin;
-
-module.exports = {
+module.exports ={
     outputDir: "../src/main/resources/static",
     indexPath: "../static/index.html",
+
     devServer: {
         proxy: {
             '/': {
@@ -14,12 +12,21 @@ module.exports = {
             }
         }
     },
-    chainWebpack: config => {
-        const svgRule = config.module.rule("svg");
-        svgRule.uses.clear();
-        svgRule.use("vue-svg-loader").loader("vue-svg-loader");
+    pluginOptions: {
+      i18n: {
+        locale: 'en',
+        fallbackLocale: 'en',
+        localeDir: 'locales',
+        enableInSFC: false
+      }
     },
-    configureWebpack: {
-        plugins: [new BundleAnalyzerPlugin()]
+    chainWebpack: config => {
+        config.module
+            .rule("i18n")
+            .resourceQuery(/blockType=i18n/)
+            .type('javascript/auto')
+            .use("i18n")
+            .loader("@kazupon/vue-i18n-loader")
+            .end();
     }
 };
