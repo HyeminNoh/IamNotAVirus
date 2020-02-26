@@ -1,0 +1,67 @@
+{
+  "language": "ko",
+  "header": {
+    "brand": "#IamNotAVirus",
+    "news": "인종차별 관련 기사",
+    "covid19": "코로나19란?",
+    "prevention": "예방법",
+    "infection": "전세계 감염 분포",
+    "support": "응원해요✨",
+    "korean": "한국어",
+    "english": "영어",
+    "language": "언어",
+    "modal": {
+      "title": "👍 #IAmNotAVirus를 응원해주세요",
+      "content1": "이 운동에 대해 지지한다면,",
+      "content2": "링크를 공유해 이 사이트를 다른 사람에게 알려주세요",
+      "copy": "복사"
+    }
+  },
+  "main": {
+    "content-title": "#IamNotAVirus 운동에 대해 아시나요?",
+    "content1": "코로나19가 전세계에 퍼져나가면서 많은 사람들이 두려움을 느끼고 있습니다.일부에서는 모든 동양인을 보균자 취급하며 차별하는 현상이 일어나고 있습니다.이런 현상들은 인종차별적인 행동입니다.",
+    "content2": "코로나19를 인종차별을 위한 요소로 사용하지말아주세요.",
+    "content3": "코로나19에 대해 올바르게 인식하고 차별을 멈춰주세요."
+  },
+  "news": {
+    "more-data": "https://search.naver.com/search.naver?where=news&query=%EC%BD%94%EB%A1%9C%EB%82%98%20%EC%9D%B8%EC%A2%85%EC%B0%A8%EB%B3%84&sm=tab_srt&sort=0&photo=0&field=0&reporter_article=&pd=0&ds=&de=&docid=&nso=so%3Ar%2Cp%3Aall%2Ca%3Aall&mynews=0&refresh_start=0&related=0",
+    "more-info": "뉴스 더보기"
+  },
+  "covidInfo": {
+    "infectious-route": "전염 경로",
+    "card1": {
+      "content1": "코로나 바이이러스(CoV) 중에서도 사람감염을 일으키는 코로나 바이러스 종으로",
+      "content2": "2019년 12월 중국 우한에서 처음 발생한 뒤 전 세계로 확산된 호흡기 감염질환이다.",
+      "content3": "2003년 유행한 사스(SARS, 중증급성호흡기증후군)와 비슷한 특징을 갖고있으며",
+      "content4": "증상으로는 발열, 호흡기 증상(기침, 호흡곤란), 중증 폐렴을 유발한다.",
+      "content5": "발생 초기에 '우한폐렴', '신종코로나바이러스'라고 불렸지만",
+      "content6": "현재는 '코로나바이러스감염증-19'(약칭 코로나19)라는 공식 명칭이 명명되었다."
+    },
+    "card2": {
+      "content1": "감염자의 비말(침방울)이 호흡기나 눈·코·입의 점막으로 침투될 때 전염된다.",
+      "content2": "비말감염은 감염자가 기침·재채기를 할 때 침 등의 작은 물방울(비말)에 바이러스·세균이 섞여 나와",
+      "content3": "타인에게 감염되는 것으로 통상 이동거리는 2m로 알려져 있다.",
+      "content4": "눈의 경우 환자의 침 등이 눈에 직접 들어가거나, 바이러스에 오염된 손으로 눈을 비비면 눈을 통해 전염될 수 있다.",
+      "content5": "공기 중 전파 가능성에 대해서는 아직 확인된 바 없다."
+    }
+  },
+  "prevention": {
+    "title": "코로나바이러스감염증-19 예방수칙",
+    "sub-title": "예방수칙 준수만으로도 코로나 감염확률을 충분히 줄일 수 있습니다.",
+    "src": "https://www.youtube.com/embed/tDJF0cdJWHo"
+  },
+  "infection": {
+    "title": "전세계 감염 정보",
+    "countryInfo": "국가별 정보",
+    "placeholder": "지도 위에 커서를 올려주세요",
+    "hidden-table": "표 숨기기",
+    "show-table": "표 열기",
+    "infect-info": "명 감염",
+    "die-info": "명 사망",
+    "country-label": "국가",
+    "infected-label": "확진",
+    "die-label": "사망",
+    "restore-label": "완치",
+    "sus-label": "의심"
+  }
+}
