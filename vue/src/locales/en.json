@@ -1,0 +1,67 @@
+{
+  "language": "en",
+  "header": {
+    "brand": "#IamNotAVirus",
+    "news": "Articles on racism",
+    "covid19": "What is Corona-19?",
+    "prevention": "Prevention",
+    "infection": "Global Infection Info",
+    "support": "Support✨",
+    "korean": "KOR",
+    "english": "ENG",
+    "language": "Language",
+    "modal": {
+      "title": "👍 Please cheer for the #IAmNotAVirus campaign",
+      "content1": "If you support this movement,",
+      "content2": "Please share the link and let others know about this site.",
+      "copy": "Copy"
+    }
+  },
+  "main": {
+    "content-title": "Do you know about the #IamNotAVirus campaign?",
+    "content1": "As the Korona19 spread all over the world, many people are afraid.Some people are treating all Asians as carriers and discriminating against them.These phenomena are racist behavior.",
+    "content2": "Do not use Corona19 as an element of racism.",
+    "content3": "Please recognize Corona 19 correctly and stop discrimination."
+  },
+  "news": {
+    "more-data": "https://www.google.com/search?q=corona+racism&source=lnms&tbm=nws&sa=X&ved=2ahUKEwjrytnG_O7nAhUVFogKHat_BnYQ_AUoAnoECAsQBA&biw=1280&bih=578",
+    "more-info": "More Info"
+  },
+  "covidInfo": {
+    "infectious-route": "Infectious Route",
+    "card1": {
+      "content1": "Among the corona viuses, it is a coronal virus that causes infection in humans.",
+      "content2": "The disease is a respiratory infection that has spread around the world since its first outbreak in Wuhan, China, in December 2019.",
+      "content3": "It has similar characteristics to SARS, which was popular in 2003.",
+      "content4": "Symptoms include fever, respiratory symptoms (coughing, difficulty breathing), and severe pneumonia.",
+      "content5": "At the beginning of the outbreak, it was called the Wuhan Corona and the New Coronavirus.",
+      "content6": "Currently, the official name 'Coronavirus infection-19' is named."
+    },
+    "card2": {
+      "content1": "It is contagious when the saliva of an infected person penetrates into the mucous membrane of the respiratory system, eyes, nose and mouth.",
+      "content2": "When an infected person coughs and sneezes, small droplets of saliva and bacteria are mixed with the virus and bacteria.",
+      "content3": "It is commonly known to have a travel distance of 2 meters, as it is infected by others.",
+      "content4": "In the case of eyes, patients' saliva, etc., can get into the eyes directly or rub their eyes with hands contaminated with the virus, which can be transmitted through the eyes.",
+      "content5": "No confirmation has been made as to the possibility of airborne propagation."
+    }
+  },
+  "prevention": {
+    "title": "Coronavirus infection-19 Preventive Rules",
+    "sub-title": "Compliance with preventive measures can be sufficient to reduce the probability of coronal infection.",
+    "src": "https://www.youtube.com/embed/QwIf78F2HuA"
+  },
+  "infection": {
+    "title": "Global Infection Information",
+    "countryInfo": "Country-Specific Information",
+    "placeholder": "Please put the cursor on the map.",
+    "hidden-table": "Hide Table",
+    "show-table": "Open the table",
+    "infect-info": "person infection",
+    "die-info": "deaths",
+    "country-label": "Country",
+    "infected-label": "confirmed",
+    "die-label": "dead",
+    "restore-label": "completely cured",
+    "sus-label": "suspected"
+  }
+}
