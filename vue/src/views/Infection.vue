@@ -110,22 +110,31 @@
                 if (!item || type !== 'row') return;
                 if (item.country === '대한민국') return 'table-warning';
                 if (item.country === '중국') return 'table-danger';
+            },
+            getData(){
+                axios.get('/infection/data',
+                    {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json; charset = utf-8'}})
+                    .then(response => {
+                        this.statusItems = response.data;
+                        //console.log(response.data);
+                    })
+                    .catch(e => {
+                        console.log('error : ', e)
+                    })
             }
         },
-        mounted () {
-            axios.get('/infection/data',
-                {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json; charset = utf-8'}})
-                .then(response => {
-                    this.statusItems = response.data;
-                    console.log(response.data);
-                })
-                .catch(e => {
-                    console.log('error : ', e)
-                })
+        created () {
+            this.getData();
         },
         watch: {
-            locale (val) {
-                this.$i18n.locale = val;
+            '$i18n.locale': function () {
+                this.$router.replace({ name: 'infection', params: { lang: this.$i18n.locale}});
+            },
+            '$route' (to, from) {
+                if(to!==from){
+                    console.log("테이블 다시 그리기");
+                    //this.getData();
+                }
             }
         }
     }
