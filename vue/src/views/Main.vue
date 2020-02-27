@@ -22,7 +22,7 @@
                         </p>
                     </div>
                     <div class="text-right" style="margin-top: 50px;">
-                        <b-button variant="danger" class="MoreBtn" to="/News">{{$t('header.news')}}</b-button>
+                        <b-button variant="danger" class="MoreBtn" :to="toNews+$i18n.locale">{{$t('header.news')}}</b-button>
                         <b-button variant="primary" class="MoreBtn" to="/covid19">{{$t('header.covid19')}}</b-button>
                         <b-button variant="success" class="MoreBtn" to="/infection">{{$t('header.infection')}}</b-button>
                     </div>
@@ -35,7 +35,10 @@
     export default {
         name: 'language',
         data () {
-            return { locale: this.$i18n.locale }
+            return {
+                locale: this.$i18n.locale,
+                toNews: "/news/"
+            }
         },
         watch: {
             locale (val) {
