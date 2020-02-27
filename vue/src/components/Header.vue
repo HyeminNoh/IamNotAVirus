@@ -4,10 +4,10 @@
             <b-navbar variant="light">
                 <b-navbar-brand style="font-size: 25px" to="/">{{$t("header.brand")}}</b-navbar-brand>
                 <b-navbar-nav style="font-size: 18px">
-                    <b-nav-item><b-link :to="toNews+$i18n.locale" class="items">{{$t("header.news")}}</b-link></b-nav-item>
+                    <b-nav-item><b-link :to="{ name: 'news', params: { lang: this.$i18n.locale }}" class="items">{{$t("header.news")}}</b-link></b-nav-item>
                     <b-nav-item><b-link to="/covid19" class="items">{{$t("header.covid19")}}</b-link></b-nav-item>
                     <b-nav-item><b-link to="/prevention" class="items">{{$t("header.prevention")}}</b-link></b-nav-item>
-                    <b-nav-item><b-link to="/infection" class="items">{{$t("header.infection")}}</b-link></b-nav-item>
+                    <b-nav-item><b-link :to="{ name: 'infection', params: { lang: this.$i18n.locale }}" class="items">{{$t("header.infection")}}</b-link></b-nav-item>
                 </b-navbar-nav>
                 <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">
@@ -38,9 +38,7 @@
         name: 'urlSharing',
         data (){
             return {
-                url: document.URL,
-                locale: this.$i18n.locale,
-                toNews: "/news/"
+                url: document.URL
             }
         },
         methods:{
@@ -50,11 +48,6 @@
             },
             onError: function () {
                 alert('복사 실패')
-            }
-        },
-        watch: {
-            locale: function (val) {
-                this.$i18n.locale = val;
             }
         }
     }

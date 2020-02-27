@@ -5,7 +5,6 @@ import Covid19 from '../views/Covid19.vue'
 import Prevention from '../views/Prevention.vue'
 import Infection from '../views/Infection.vue'
 import News from '../views/News.vue'
-import NewsList from '../views/NewsList.vue'
 
 Vue.use(VueRouter);
 
@@ -26,23 +25,22 @@ const routes = [
         component: Prevention
     },
     {
-        path: '/infection',
+        path: '/infection/:lang',
         name: 'infection',
-        component: Infection
+        component: Infection,
+        props: true,
+        meta: {
+            reload: true,
+        }
     },
     {
         path: '/news/:lang',
         name: 'news',
         component: News,
         props: true,
-        children: [
-            {
-                // /user/:id/profile 과 일치 할 때
-                // UserProfile은 User의 <router-view> 내에 렌더링 됩니다.
-                path: '',
-                component: NewsList
-            }
-        ]
+        meta: {
+            reload: true,
+        }
     }
 ]
 
