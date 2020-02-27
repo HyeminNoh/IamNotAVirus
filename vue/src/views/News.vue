@@ -9,60 +9,24 @@
                     <b-button variant="outline-success" target="_blank" :href="$t('news.more-data')">{{$t('news.more-info')}}</b-button>
                 </b-col>
             </b-row>
-
-            <b-row id="news-list" v-for="(item, index) in newsList"
-                   :key="index" >
-                <b-card :img-src=item.img :to=item.link target="_blank" img- img-alt="News image" img-height="120px" img-width="120px" img-left class="mb-3">
-                        <b-card-text id="news-text">
-                            <a :href=item.link target="_blank">
-                                <h4 id="news-title">{{item.title}}</h4>
-                            </a>
-                            <br>
-                            <h6>{{item.source}}</h6>
-                        </b-card-text>
-                </b-card>
-            </b-row>
+            <router-view :lang="$route.fullPath"></router-view>
         </b-container>
     </div>
 </template>
 
 <script>
-    import axios from 'axios'
-
     export default {
         name: 'news',
         data() {
             return {
-                locale: this.$i18n.locale,
-                newsList: []
-            }
-        },
-        methods:{
-            getData(){
-                axios.get('/crawling/news/' + this.$t('language'),
-                    {
-                        headers: {
-                            'Access-Control-Allow-Origin': '*',
-                            'Content-Type': 'application/json; charset = utf-8'
-                        }
-                    })
-                    .then(response => {
-                        this.newsList = response.data;
-                        console.log(response.data);
-                    })
-                    .catch(e => {
-                        console.log('error : ', e)
-                    })
+                locale: this.$i18n.locale
             }
         },
         watch: {
             locale: function (val) {
                 this.$i18n.locale = val;
-                this.getData();
+                this.$router.push({name: 'news', params: { lang: val}});
             }
-        },
-        mounted() {
-            this.getData();
         }
     }
 </script>
