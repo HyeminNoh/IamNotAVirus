@@ -101,85 +101,16 @@ public class DataApiController {
         return gson.toJson(returnArray);
     }
 
-    public String countryEng(String country){
-        switch (country){
-            case "대한민국":
-                return "KOREA";
-            case "중국":
-                return "CHINA";
-            case "일본":
-                return "JAPAN";
-            case "싱가포르":
-                return "SG";
-            case "홍콩":
-                return "HK";
-            case "태국":
-                return "TH";
-            case "중화민국":
-                return "TW";
-            case "말레이시아":
-                return "MY";
-            case "이란":
-                return "IRN";
-            case "오스트레일리아":
-                return "AU";
-            case "독일":
-                return "D";
-            case "베트남":
-                return "VN";
-            case "프랑스":
-                return "F";
-            case "마카오":
-                return "MO";
-            case "영국":
-                return "GB";
-            case "아랍에미리트":
-                return "AE";
-            case "캐나다":
-                return "CA";
-            case "이탈리아":
-                return "I";
-            case "필리핀":
-                return "PH";
-            case "인도":
-                return "IND";
-            case "러시아":
-                return "RUS";
-            case "스페인":
-                return "E";
-            case "스웨덴":
-                return "S";
-            case "이스라엘":
-                return "IS";
-            case "레바논":
-                return "LB";
-            case "네팔":
-                return "NP";
-            case "벨기에":
-                return "B";
-            case "스리랑카":
-                return "LK";
-            case "캄보디아":
-                return "KH";
-            case "핀란드":
-                return "AI";
-            case "이집트":
-                return "EG";
-            case "합계":
-                return "total";
-            default:
-                return "";
-        }
-    }
-
     public String postalCheck(String country){
         switch (country){
             case "대한민국":
                 return "KR";
             case "중국":
                 return "CN";
-            case "일본":
+            case "일본[b]":
                 return "J";
+            case "미국[10]":
+                return "US";
             case "싱가포르":
                 return "SG";
             case "홍콩":
@@ -192,8 +123,16 @@ public class DataApiController {
                 return "MY";
             case "이란":
                 return "IRN";
+            case "오만":
+                return "OM";
+            case "크로아티아":
+                return "HR";
             case "오스트레일리아":
                 return "AU";
+            case "오스트리아":
+                return "A";
+            case "쿠웨이트":
+                return "KW";
             case "독일":
                 return "D";
             case "베트남":
@@ -202,6 +141,8 @@ public class DataApiController {
                 return "F";
             case "마카오":
                 return "MO";
+            case "이라크":
+                return "IRQ";
             case "영국":
                 return "GB";
             case "아랍에미리트":
@@ -220,8 +161,14 @@ public class DataApiController {
                 return "E";
             case "스웨덴":
                 return "S";
+            case "에스토니아":
+                return "EST";
+            case "덴마크":
+                return "DK";
             case "이스라엘":
                 return "IS";
+            case "파키스탄":
+                return "PK";
             case "레바논":
                 return "LB";
             case "네팔":
@@ -236,6 +183,22 @@ public class DataApiController {
                 return "AI";
             case "이집트":
                 return "EG";
+            case "조지아":
+                return "GE";
+            case "루마니아":
+                return "RO";
+            case "노르웨이":
+                return "N";
+            case "그리스":
+                return "GR";
+            case "브라질":
+                return "BR";
+            case "알제리":
+                return "DZ";
+            case "스위스":
+                return "CH";
+            case "아프가니스탄":
+                return "AF";
             case "합계":
                 return "total";
             default:
