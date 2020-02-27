@@ -33,19 +33,6 @@
         </b-container>
     </div>
 </template>
-<script>
-    export default {
-        name: 'covidInfo',
-        data () {
-            return { locale: this.$i18n.locale }
-        },
-        watch: {
-            locale (val) {
-                this.$i18n.locale = val
-            }
-        }
-    }
-</script>
 <style lang="css">
     #Content{
         margin-top: 5%;
