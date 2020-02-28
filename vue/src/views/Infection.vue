@@ -9,8 +9,9 @@
                         style="height: 400px; width: 95%"
                         :options="{zoomControl: false}">
                     <l-choropleth-layer
+                            ref="my-choropleth-layer"
                             :data="statusItems"
-                            titleKey="country"
+                            :titleKey="titleKey"
                             idKey="postal"
                             :value="value"
                             :extraValues="extraValues"
@@ -63,7 +64,8 @@
             return {
                 locale: this.$i18n.locale,
                 custom,
-                colorScale: ["e7d090", "de7062"],
+                titleKey: "",
+                colorScale: ["e7d090", "e9ae7b", "de7062"],
                 value: {
                     key: "infected",
                     metric: this.$t('infection.infect-info')
@@ -103,6 +105,7 @@
             },
             setFields(){
                 if(this.$i18n.locale==="ko"){
+                    this.titleKey = "country";
                     this.fields = [{
                         key: 'country',
                         label: this.$t('infection.country-label')
@@ -126,6 +129,7 @@
                     ]
                 }
                 if(this.$i18n.locale==="en"){
+                    this.titleKey = "engCountry";
                     this.fields = [{
                         key: 'engCountry',
                         label: this.$t('infection.country-label')
