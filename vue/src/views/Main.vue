@@ -6,7 +6,7 @@
                     <b-embed
                             type="iframe"
                             aspect="16by9"
-                            src="https://www.youtube.com/embed/Bkltok5THro"
+                            :src="this.$t('main.src')"
                             allowfullscreen>
                     </b-embed>
                 </b-col>
