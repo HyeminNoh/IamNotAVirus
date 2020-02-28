@@ -87,18 +87,126 @@ public class DataApiController {
             //JsonObject 선언
             JsonObject returnObject = new JsonObject();
             JsonElement el = convertedObject.get(i);
-
-            returnObject.addProperty("country", el.getAsJsonObject().get("country").getAsString());
+            String country = el.getAsJsonObject().get("country").getAsString();
+            returnObject.addProperty("country", country);
+            returnObject.addProperty("engCountry",toEng(country));
             returnObject.addProperty("die", el.getAsJsonObject().get("die").getAsString());
             returnObject.addProperty("infected", el.getAsJsonObject().get("infected").getAsString());
             returnObject.addProperty("restore", el.getAsJsonObject().get("restore").getAsString());
             returnObject.addProperty("sus", el.getAsJsonObject().get("sus").getAsString());
-            returnObject.addProperty("postal", postalCheck(el.getAsJsonObject().get("country").getAsString()));
+            returnObject.addProperty("postal", postalCheck(country));
 
             returnArray.add(returnObject);
         }
 
         return gson.toJson(returnArray);
+    }
+
+    public String toEng(String country){
+        switch (country){
+            case "대한민국":
+                return "SouthKorea";
+            case "중국":
+                return "China";
+            case "국제 운송수단[a][b](다이아몬드 프린세스호)":
+                return "Diamond Princess Cruise";
+            case "일본[b]":
+                return "Japan";
+            case "미국[10]":
+                return "USA";
+            case "싱가포르":
+                return "Singapore";
+            case "홍콩":
+                return "HongKong";
+            case "태국":
+                return "Thailand";
+            case "중화민국":
+                return "Taiwan";
+            case "말레이시아":
+                return "Malaysia";
+            case "이란":
+                return "Iran";
+            case "오만":
+                return "Oman";
+            case "크로아티아":
+                return "Croatia";
+            case "오스트레일리아":
+                return "Australia";
+            case "오스트리아":
+                return "Austria";
+            case "쿠웨이트":
+                return "Kuwait";
+            case "독일":
+                return "Germany";
+            case "베트남":
+                return "Vietnam";
+            case "프랑스":
+                return "France";
+            case "마카오":
+                return "Makao";
+            case "이라크":
+                return "Iraq";
+            case "영국":
+                return "UK";
+            case "아랍에미리트":
+                return "UAE";
+            case "캐나다":
+                return "Canada";
+            case "이탈리아":
+                return "Itary";
+            case "필리핀":
+                return "Philippine";
+            case "인도":
+                return "India";
+            case "러시아":
+                return "Russia";
+            case "스페인":
+                return "Spain";
+            case "스웨덴":
+                return "Sweden";
+            case "에스토니아":
+                return "Estonia";
+            case "덴마크":
+                return "Denmark";
+            case "이스라엘":
+                return "Israel";
+            case "파키스탄":
+                return "Pakistan";
+            case "레바논":
+                return "Lebanon";
+            case "네팔":
+                return "Nepal";
+            case "벨기에":
+                return "Belgium";
+            case "스리랑카":
+                return "Sri Lanka";
+            case "캄보디아":
+                return "Cambodia";
+            case "핀란드":
+                return "Finland";
+            case "이집트":
+                return "Egypt";
+            case "조지아":
+                return "Georgia";
+            case "루마니아":
+                return "Romania";
+            case "노르웨이":
+                return "Norway";
+            case "그리스":
+                return "Greece";
+            case "브라질":
+                return "Brazil";
+            case "알제리":
+                return "Algeria";
+            case "스위스":
+                return "Switzerland";
+            case "아프가니스탄":
+                return "Afghanistan";
+            case "합계":
+                return "total";
+            default:
+                return "";
+        }
     }
 
     public String postalCheck(String country){
