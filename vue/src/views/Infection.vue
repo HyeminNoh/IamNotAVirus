@@ -77,28 +77,7 @@
                 },
                 currentStrokeColor: '3d3213',
                 statusItems: [],
-                fields: [
-                    {
-                        key: 'country',
-                        label: this.$t('infection.country-label')
-                    },
-                    {
-                        key: 'infected',
-                        label: this.$t('infection.infected-label')
-                    },
-                    {
-                        key: 'die',
-                        label: this.$t('infection.die-label')
-                    },
-                    {
-                        key: 'restore',
-                        label: this.$t('infection.restore-label')
-                    },
-                    {
-                        key: 'sus',
-                        label: this.$t('infection.sus-label')
-                    },
-                ],
+                fields: [],
                 isHidden: false,
                 sortBy: 'infected',
                 sortDesc: true
@@ -121,10 +100,60 @@
                     .catch(e => {
                         console.log('error : ', e)
                     })
+            },
+            setFields(){
+                if(this.$i18n.locale==="ko"){
+                    this.fields = [{
+                        key: 'country',
+                        label: this.$t('infection.country-label')
+                    },
+                        {
+                            key: 'infected',
+                            label: this.$t('infection.infected-label')
+                        },
+                        {
+                            key: 'die',
+                            label: this.$t('infection.die-label')
+                        },
+                        {
+                            key: 'restore',
+                            label: this.$t('infection.restore-label')
+                        },
+                        {
+                            key: 'sus',
+                            label: this.$t('infection.sus-label')
+                        }
+                    ]
+                }
+                if(this.$i18n.locale==="en"){
+                    this.fields = [{
+                        key: 'engCountry',
+                        label: this.$t('infection.country-label')
+                    },
+                        {
+                            key: 'infected',
+                            label: this.$t('infection.infected-label')
+                        },
+                        {
+                            key: 'die',
+                            label: this.$t('infection.die-label')
+                        },
+                        {
+                            key: 'restore',
+                            label: this.$t('infection.restore-label')
+                        },
+                        {
+                            key: 'sus',
+                            label: this.$t('infection.sus-label')
+                        }
+                    ]
+                }
             }
         },
         created () {
             this.getData();
+            this.setFields();
+
         },
         watch: {
             '$i18n.locale': function () {
@@ -132,8 +161,7 @@
             },
             '$route' (to, from) {
                 if(to!==from){
-                    console.log("테이블 다시 그리기");
-                    //this.getData();
+                    this.setFields();
                 }
             }
         }
