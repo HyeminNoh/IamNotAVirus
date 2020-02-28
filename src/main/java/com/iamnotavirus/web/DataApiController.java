@@ -120,6 +120,8 @@ public class DataApiController {
                 return "HongKong";
             case "태국":
                 return "Thailand";
+            case "바레인":
+                return "Bahrain";
             case "중화민국":
                 return "Taiwan";
             case "말레이시아":
@@ -166,6 +168,8 @@ public class DataApiController {
                 return "Sweden";
             case "에스토니아":
                 return "Estonia";
+            case "북마케도니아":
+                return "Northern Macedonia";
             case "덴마크":
                 return "Denmark";
             case "이스라엘":
@@ -271,6 +275,8 @@ public class DataApiController {
                 return "S";
             case "에스토니아":
                 return "EST";
+            case "북마케도니아":
+                return "MK";
             case "덴마크":
                 return "DK";
             case "이스라엘":
