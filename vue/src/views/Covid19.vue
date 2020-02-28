@@ -44,7 +44,14 @@
                     </b-card-header>
                     <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
                         <b-card-body>
-                            <b-card-text>{{ text }}</b-card-text>
+                            <b-card-text style="font-weight: bold">{{$t('covidInfo.fact-check.sub2.content1')}}</b-card-text>
+                            <b-card-text>
+                                {{$t('covidInfo.fact-check.sub2.content2')}}<br>
+                                {{$t('covidInfo.fact-check.sub2.content3')}}<br>
+                                {{$t('covidInfo.fact-check.sub2.content4')}}<br>
+                                {{$t('covidInfo.fact-check.sub2.content5')}}<br>
+                                {{$t('covidInfo.fact-check.sub2.content6')}}
+                            </b-card-text>
                         </b-card-body>
                     </b-collapse>
                 </b-card>
@@ -57,20 +64,13 @@
                     </b-card-header>
                     <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
                         <b-card-body>
-                            <b-card-text>{{ text }}</b-card-text>
-                        </b-card-body>
-                    </b-collapse>
-                </b-card>
-
-                <b-card no-body class="mb-1">
-                    <b-card-header header-tag="header" class="p-1" role="tab">
-                        <b-button block href="#" v-b-toggle.accordion-4 variant="Secondary">
-                            {{$t('covidInfo.fact-check.sub4.title')}}
-                        </b-button>
-                    </b-card-header>
-                    <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
-                        <b-card-body>
-                            <b-card-text>{{ text }}</b-card-text>
+                            <b-card-text style="font-weight: bold">{{$t('covidInfo.fact-check.sub3.content1')}}</b-card-text>
+                            <b-card-text>
+                                {{$t('covidInfo.fact-check.sub3.content2')}}<br>
+                                {{$t('covidInfo.fact-check.sub3.content3')}}<br>
+                                {{$t('covidInfo.fact-check.sub3.content4')}}<br>
+                                {{$t('covidInfo.fact-check.sub3.content5')}}
+                            </b-card-text>
                         </b-card-body>
                     </b-collapse>
                 </b-card>
