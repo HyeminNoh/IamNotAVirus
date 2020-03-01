@@ -1,6 +1,6 @@
 # I am Not A Virus - Web Project
 
-🖱️ [#IamNotAVirus-Campaign](www.iamnotavirus-campaign.com:8080) Click!
+🖱️ [#IamNotAVirus-Campaign](http://www.iamnotavirus-campaign.com:8080) Click!
 
     아마존 Route53이 80포트를 기본으로 하고 있어서
     일단 :8080포트를 붙여 접속해야 하는 상황입니다.
