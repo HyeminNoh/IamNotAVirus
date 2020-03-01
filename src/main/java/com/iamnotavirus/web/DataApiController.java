@@ -138,7 +138,7 @@ public class DataApiController {
                 return "Taiwan";
             case "말레이시아":
                 return "Malaysia";
-            case "이란":
+            case "이란[a]":
                 return "Iran";
             case "오만":
                 return "Oman";
@@ -190,6 +190,8 @@ public class DataApiController {
                 return "Pakistan";
             case "레바논":
                 return "Lebanon";
+            case "네덜란드":
+                return "Netherlands";
             case "네팔":
                 return "Nepal";
             case "벨기에":
@@ -218,6 +220,38 @@ public class DataApiController {
                 return "Switzerland";
             case "아프가니스탄":
                 return "Afghanistan";
+            case "멕시코":
+                return "Mexico";
+            case "아제르바이잔":
+                return "Azerbaijan";
+            case "체코":
+                return "Czech";
+            case "아르메니아":
+                return "Armenia";
+            case "벨라루스":
+                return "Belarus";
+            case "도미니카 공화국":
+                return "Dominican";
+            case "에콰도르":
+                return "Ecuador";
+            case "아이슬란드":
+                return "Iceland";
+            case "아일랜드":
+                return "Ireland";
+            case "리투아니아":
+                return "Lithuania";
+            case "룩셈부르크":
+                return "Luxembourg";
+            case "모나코":
+                return "Monaco";
+            case "뉴질랜드":
+                return "New Zealand";
+            case "나이지리아":
+                return "Nigeria";
+            case "카타르":
+                return "Qatar";
+            case "산마리노":
+                return "San Marino";
             case "합계":
                 return "total";
             default:
@@ -245,7 +279,7 @@ public class DataApiController {
                 return "TW";
             case "말레이시아":
                 return "MY";
-            case "이란":
+            case "이란[a]":
                 return "IRN";
             case "오만":
                 return "OM";
@@ -297,6 +331,8 @@ public class DataApiController {
                 return "PK";
             case "레바논":
                 return "LB";
+            case "네덜란드":
+                return "NL";
             case "네팔":
                 return "NP";
             case "벨기에":
@@ -325,6 +361,34 @@ public class DataApiController {
                 return "CH";
             case "아프가니스탄":
                 return "AF";
+            case "멕시코":
+                return "MX";
+            case "아제르바이잔":
+                return "AZ";
+            case "체코":
+                return "CZ";
+            case "아르메니아":
+                return "ARM";
+            case "벨라루스":
+                return "BY";
+            case "도미니카 공화국":
+                return "DO";
+            case "에콰도르":
+                return "EC";
+            case "아이슬란드":
+                return "IS";
+            case "아일랜드":
+                return "IRL";
+            case "리투아니아":
+                return "LT";
+            case "룩셈부르크":
+                return "L";
+            case "뉴질랜드":
+                return "NZ";
+            case "나이지리아":
+                return "NG";
+            case "카타르":
+                return "QA";
             case "합계":
                 return "total";
             default:
