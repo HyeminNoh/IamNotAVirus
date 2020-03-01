@@ -72,7 +72,8 @@ public class DataApiController {
         //return elements.html();
     }
 
-    @RequestMapping(value="/infection/data", produces = "application/json; charset=utf-8")
+    @ResponseBody
+    @RequestMapping("/infection/data")
     public Object infectionDataResponse() throws Exception{
         Gson gson = new Gson();
         RestTemplate restTemplate = new RestTemplate();
