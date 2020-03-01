@@ -45,7 +45,7 @@
                     })
                     .then(response => {
                         this.newsList = response.data;
-                        console.log(response.data);
+                        //console.log(response.data);
                     })
                     .catch(e => {
                         console.log('error : ', e)
