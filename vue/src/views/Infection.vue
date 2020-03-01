@@ -4,8 +4,8 @@
             <h3 style="text-align: left; margin-bottom: 4%">🗺️ {{$t('infection.title')}}</h3>
             <div id="map">
                 <l-map
-                        :center="[39, 127]"
-                        :zoom="4.5"
+                        :center="[45, 0]"
+                        :zoom="2"
                         style="height: 400px; width: 95%"
                         :options="{zoomControl: false}">
                     <l-choropleth-layer
