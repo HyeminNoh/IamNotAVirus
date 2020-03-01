@@ -73,7 +73,7 @@ public class DataApiController {
     }
 
     @ResponseBody
-    @RequestMapping("/infection/data")
+    @RequestMapping("/infectiondata")
     public Object infectionDataResponse() throws Exception{
         Gson gson = new Gson();
         RestTemplate restTemplate = new RestTemplate();
