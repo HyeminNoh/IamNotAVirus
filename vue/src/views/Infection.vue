@@ -94,7 +94,12 @@
             },
             getData(){
                 axios.get('/status/data',
-                    {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json; charset = utf-8'}})
+                    {
+                        headers:{
+                            'Access-Control-Allow-Origin': '*',
+                            'Content-Type':'application/json; charset = utf-8'
+                        }
+                    })
                     .then(response => {
                         this.statusItems = response.data;
                         //console.log(response.data);
