@@ -39,7 +39,7 @@
     },
     "infectious-route": "전염 경로",
     "fact-check": {
-      "title": "✔ 잘못된 정보 팩트 체크",
+      "title": "잘못된 정보 팩트 체크",
       "sub1": {
         "title" : "코로나바이러스는 공기중으로 전파될 수 있다?",
         "content1": "공기 중 전파 X",
