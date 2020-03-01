@@ -8,12 +8,14 @@ import com.iamnotavirus.util.WebCrawler;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.lang.Object;
+import java.nio.charset.Charset;
 
 @RequiredArgsConstructor
 @RestController
@@ -77,9 +79,17 @@ public class DataApiController {
     public Object infectionDataResponse() throws Exception{
         Gson gson = new Gson();
         RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
 
-        String jsonStr = restTemplate.getForObject("http://happycastle.club/status", String.class);
-        JsonArray convertedObject = gson.fromJson(jsonStr, JsonElement.class).getAsJsonArray();
+        headers.setContentType(MediaType.valueOf("text/plain; charset=utf-8"));
+        headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" +
+                " AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
+        HttpEntity<String> entity = new HttpEntity<String>("", headers);
+        ResponseEntity<String> res = restTemplate
+                .exchange("http://happycastle.club/status", HttpMethod.GET, entity, String.class);
+
+        //String jsonStr = restTemplate.getForObject("http://happycastle.club/status", String.class);
+        JsonArray convertedObject = gson.fromJson(res.getBody(), JsonElement.class).getAsJsonArray();
 
         //JsonArray 선언
         JsonArray returnArray = new JsonArray();
@@ -101,6 +111,7 @@ public class DataApiController {
         }
 
         return gson.toJson(returnArray);
+        //return gson.toJson(res.getBody());
     }
 
     public String toEng(String country){
