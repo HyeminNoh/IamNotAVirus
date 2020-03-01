@@ -93,7 +93,7 @@
                 if (item.country === '중국') return 'table-danger';
             },
             getData(){
-                axios.get('/infectiondata',
+                axios.get('/status/data',
                     {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type':'application/json; charset = utf-8'}})
                     .then(response => {
                         this.statusItems = response.data;
