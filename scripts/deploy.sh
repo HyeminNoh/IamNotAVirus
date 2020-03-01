@@ -23,7 +23,7 @@ fi
 
 echo "> 새 어플리케이션 배포"
 
-JAR_NAME=$(ls -tr $REPOSITORY/ | grep *.jar | tail -n 1)
+JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 
@@ -35,4 +35,5 @@ echo "> $JAR_NAME 실행"
 
 nohup java -jar \
     -Dspring.config.location=classpath:/application.properties \
+    -Dspring.profiles.active=real \
     $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
