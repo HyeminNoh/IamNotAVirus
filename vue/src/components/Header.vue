@@ -1,22 +1,27 @@
 <template>
     <div>
         <b-container id="Header">
-            <b-navbar variant="light">
+            <b-navbar variant="light" toggleable="md">
                 <b-navbar-brand style="font-size: 25px" to="/">{{$t("header.brand")}}</b-navbar-brand>
-                <b-navbar-nav style="font-size: 18px">
-                    <b-nav-item><b-link :to="{ name: 'news', params: { lang: this.$i18n.locale }}" class="items">{{$t("header.news")}}</b-link></b-nav-item>
-                    <b-nav-item><b-link to="/covid19" class="items">{{$t("header.covid19")}}</b-link></b-nav-item>
-                    <b-nav-item><b-link to="/prevention" class="items">{{$t("header.prevention")}}</b-link></b-nav-item>
-                    <b-nav-item><b-link :to="{ name: 'infection', params: { lang: this.$i18n.locale }}" class="items">{{$t("header.infection")}}</b-link></b-nav-item>
-                </b-navbar-nav>
-                <!-- Right aligned nav items -->
-                <b-navbar-nav class="ml-auto">
-                    <b-button v-b-modal.support-modal variant="outline-primary" style="margin-right: 10px">{{$t("header.support")}}</b-button>
-                    <b-nav-item-dropdown :text="$t('header.language')" right>
-                        <b-dropdown-item @click="$i18n.locale='ko'">{{$t("header.korean")}}</b-dropdown-item>
-                        <b-dropdown-item @click="$i18n.locale='en'"> {{$t('header.english')}}</b-dropdown-item>
-                    </b-nav-item-dropdown>
-                </b-navbar-nav>
+                <!-- Put the toggle here after the brand -->
+                <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+                <b-collapse is-nav id="nav_collapse">
+                    <b-navbar-nav style="font-size: 18px">
+                        <b-nav-item><b-link :to="{ name: 'news', params: { lang: this.$i18n.locale }}" class="items">{{$t("header.news")}}</b-link></b-nav-item>
+                        <b-nav-item><b-link to="/covid19" class="items">{{$t("header.covid19")}}</b-link></b-nav-item>
+                        <b-nav-item><b-link to="/prevention" class="items">{{$t("header.prevention")}}</b-link></b-nav-item>
+                        <b-nav-item><b-link :to="{ name: 'infection', params: { lang: this.$i18n.locale }}" class="items">{{$t("header.infection")}}</b-link></b-nav-item>
+                    </b-navbar-nav>
+                    <!-- Right aligned nav items -->
+                    <b-navbar-nav class="ml-auto">
+                        <b-button v-b-modal.support-modal variant="outline-primary" style="margin-right: 10px">{{$t("header.support")}}</b-button>
+                        <b-nav-item-dropdown :text="$t('header.language')" right>
+                            <b-dropdown-item @click="$i18n.locale='ko'">{{$t("header.korean")}}</b-dropdown-item>
+                            <b-dropdown-item @click="$i18n.locale='en'"> {{$t('header.english')}}</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                    </b-navbar-nav>
+                </b-collapse>
             </b-navbar>
         </b-container>
         <!-- The modal -->
