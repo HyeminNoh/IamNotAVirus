@@ -252,6 +252,24 @@ public class DataApiController {
                 return "Qatar";
             case "산마리노":
                 return "San Marino";
+            case "인도네시아":
+                return "Indonesia";
+            case "포르투갈":
+                return "Portugal";
+            case "안도라":
+                return "Andorra";
+            case "요르단":
+                return "Jordan";
+            case "라트비아":
+                return "Latvia";
+            case "모로코":
+                return "morocco";
+            case "사우디아라비아":
+                return "Saudi Arabia";
+            case "세네갈":
+                return "Senegal";
+            case "튀니지":
+                return "Tunisia";
             case "합계":
                 return "total";
             default:
@@ -389,6 +407,22 @@ public class DataApiController {
                 return "NG";
             case "카타르":
                 return "QA";
+            case "인도네시아":
+                return "INDO";
+            case "포르투갈":
+                return "P";
+            case "요르단":
+                return "J";
+            case "라트비아":
+                return "LV";
+            case "모로코":
+                return "MA";
+            case "사우디아라비아":
+                return "SA";
+            case "세네갈":
+                return "SN";
+            case "튀니지":
+                return "TN";
             case "합계":
                 return "total";
             default:
