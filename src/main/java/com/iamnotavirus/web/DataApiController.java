@@ -121,9 +121,12 @@ public class DataApiController {
             case "중국":
                 return "China";
             case "국제 운송수단[a][b](다이아몬드 프린세스호)":
+            case "국제 운송수단":
                 return "Diamond Princess Cruise";
             case "일본[b]":
+            case "일본":
                 return "Japan";
+            case "미국":
             case "미국[10]":
                 return "USA";
             case "싱가포르":
@@ -138,6 +141,7 @@ public class DataApiController {
                 return "Taiwan";
             case "말레이시아":
                 return "Malaysia";
+            case "이란":
             case "이란[a]":
                 return "Iran";
             case "오만":
@@ -263,13 +267,21 @@ public class DataApiController {
             case "라트비아":
                 return "Latvia";
             case "모로코":
-                return "morocco";
+                return "Morocco";
             case "사우디아라비아":
                 return "Saudi Arabia";
             case "세네갈":
                 return "Senegal";
             case "튀니지":
                 return "Tunisia";
+            case "아르헨티나":
+                return "Argentina";
+            case "칠레":
+                return "Chile";
+            case "리히텐슈타인":
+                return "Liechtenstein";
+            case "우크라이나":
+                return "Ukraine";
             case "합계":
                 return "total";
             default:
@@ -284,8 +296,10 @@ public class DataApiController {
             case "중국":
                 return "CN";
             case "일본[b]":
+            case "일본":
                 return "J";
             case "미국[10]":
+            case "미국":
                 return "US";
             case "싱가포르":
                 return "SG";
@@ -297,6 +311,7 @@ public class DataApiController {
                 return "TW";
             case "말레이시아":
                 return "MY";
+            case "이란":
             case "이란[a]":
                 return "IRN";
             case "오만":
@@ -423,6 +438,12 @@ public class DataApiController {
                 return "SN";
             case "튀니지":
                 return "TN";
+            case "아르헨티나":
+                return "AR";
+            case "칠레":
+                return "CL";
+            case "우크라이나":
+                return "UA";
             case "합계":
                 return "total";
             default:
