@@ -66,14 +66,8 @@
                 custom,
                 titleKey: "",
                 colorScale: ["e7d090", "e9ae7b", "de7062"],
-                value: {
-                    key: "infected",
-                    metric: this.$t('infection.infect-info')
-                },
-                extraValues: [{
-                    key: "die",
-                    metric: this.$t('infection.die-info')
-                }],
+                value: {},
+                extraValues: [],
                 mapOptions: {
                     attributionControl: false
                 },
@@ -111,6 +105,16 @@
             setFields(){
                 if(this.$i18n.locale==="ko"){
                     this.titleKey = "country";
+                    this.value = {
+                        key: "infected",
+                        metric: this.$t('infection.infect-info')
+                    };
+                    this.extraValues = [
+                        {
+                            key: "die",
+                            metric: this.$t('infection.die-info')
+                        }
+                    ];
                     this.fields = [{
                         key: 'country',
                         label: this.$t('infection.country-label')
@@ -135,6 +139,16 @@
                 }
                 if(this.$i18n.locale==="en"){
                     this.titleKey = "engCountry";
+                    this.value = {
+                        key: "infected",
+                        metric: this.$t('infection.infect-info')
+                    };
+                    this.extraValues = [
+                        {
+                            key: "die",
+                            metric: this.$t('infection.die-info')
+                        }
+                    ];
                     this.fields = [{
                         key: 'engCountry',
                         label: this.$t('infection.country-label')
