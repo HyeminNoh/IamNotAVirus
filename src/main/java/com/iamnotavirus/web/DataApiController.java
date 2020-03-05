@@ -122,6 +122,7 @@ public class DataApiController {
                 return "China";
             case "국제 운송수단[a][b](다이아몬드 프린세스호)":
             case "국제 운송수단":
+            case "국제 운송":
                 return "Diamond Princess Cruise";
             case "일본[b]":
             case "일본":
@@ -137,6 +138,7 @@ public class DataApiController {
                 return "Thailand";
             case "바레인":
                 return "Bahrain";
+            case "타이완":
             case "중화민국":
                 return "Taiwan";
             case "말레이시아":
@@ -307,6 +309,7 @@ public class DataApiController {
                 return "HK";
             case "태국":
                 return "TH";
+            case "타이완":
             case "중화민국":
                 return "TW";
             case "말레이시아":
