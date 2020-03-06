@@ -72,7 +72,6 @@
         margin-top: 5%;
     }
     #Content #newsContent{
-        margin-left: 5%;
         text-align: center;
     }
     #news-text{

@@ -35,9 +35,6 @@
     #Content{
         margin-top: 5%;
     }
-    #Content #mainContent{
-        margin-left: 6%;
-    }
     .MoreBtn{
         margin: 5px;
     }

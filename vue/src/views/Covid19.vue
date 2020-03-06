@@ -83,13 +83,11 @@
         margin-top: 5%;
     }
     #Content #coronaContent{
-        margin-left: 5%;
         text-align: left;
     }
     .card{
         margin: 3%;
         width: 100%;
-        text-align: center;
         line-height:1.8em;
     }
     #highlight{

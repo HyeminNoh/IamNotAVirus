@@ -197,7 +197,6 @@
         margin-top: 5%;
     }
     #Content #infectionContent{
-        margin-left: 6%;
         text-align: center;
     }
     #map{

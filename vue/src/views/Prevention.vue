@@ -22,7 +22,6 @@
         margin-top: 5%;
     }
     #Content #preventionContent{
-        margin-left: 5%;
         text-align: left;
     }
     #videoCard{
