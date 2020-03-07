@@ -4,18 +4,18 @@
             <h3 style="text-align: left; margin-bottom: 4%">🗺️ {{$t('infection.title')}}</h3>
             <div id="map">
                 <l-map
-                        :center="[45, 0]"
-                        :zoom="2"
-                        style="height: 400px; width: 95%"
+                        :center="[35, 0]"
+                        :zoom="1.3"
+                        style="height: 400px;"
                         :options="{zoomControl: false}">
                     <l-choropleth-layer
                             ref="my-choropleth-layer"
                             :data="statusItems"
                             :titleKey="titleKey"
-                            idKey="postal"
+                            idKey="ISO_A3"
                             :value="value"
                             :extraValues="extraValues"
-                            geojsonIdKey="postal"
+                            geojsonIdKey="ISO_A3"
                             :geojson="custom"
                             :colorScale="colorScale">
                         <template slot-scope="props">
@@ -51,7 +51,7 @@
     import axios from 'axios'
     import {LMap} from 'vue2-leaflet'
     import { InfoControl, ChoroplethLayer } from 'vue-choropleth'
-    import custom from '../data/custom.geo.json'
+    import custom from '../data/countries.geo.json'
 
     export default {
         name: 'status',
@@ -203,10 +203,10 @@
         margin-bottom: 30px;
     }
     #infectionTable{
-        width: 95%;
+        width: 100%;
     }
     #tableBtn{
-        width: 95%;
+        width: 100%;
         margin-bottom: 5%;
     }
 </style>
