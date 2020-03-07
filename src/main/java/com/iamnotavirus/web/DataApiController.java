@@ -105,7 +105,7 @@ public class DataApiController {
             returnObject.addProperty("infected", el.getAsJsonObject().get("infected").getAsString());
             returnObject.addProperty("restore", el.getAsJsonObject().get("restore").getAsString());
             returnObject.addProperty("sus", el.getAsJsonObject().get("sus").getAsString());
-            returnObject.addProperty("postal", postalCheck(country));
+            returnObject.addProperty("ISO_A3", postalCheck(country));
 
             returnArray.add(returnObject);
         }
@@ -117,7 +117,7 @@ public class DataApiController {
     public String toEng(String country){
         switch (country){
             case "대한민국":
-                return "SouthKorea";
+                return "South Korea";
             case "중국":
                 return "China";
             case "국제 운송수단[a][b](다이아몬드 프린세스호)":
@@ -294,159 +294,167 @@ public class DataApiController {
     public String postalCheck(String country){
         switch (country){
             case "대한민국":
-                return "KR";
+                return "KOR";
             case "중국":
-                return "CN";
+                return "CHN";
             case "일본[b]":
             case "일본":
-                return "J";
+                return "JPN";
             case "미국[10]":
             case "미국":
-                return "US";
+                return "USA";
             case "싱가포르":
-                return "SG";
+                return "SGP";
             case "홍콩":
-                return "HK";
+                return "HKG";
             case "태국":
-                return "TH";
+                return "THA";
             case "타이완":
             case "중화민국":
-                return "TW";
+                return "TWN";
             case "말레이시아":
-                return "MY";
+                return "MYS";
             case "이란":
             case "이란[a]":
                 return "IRN";
             case "오만":
-                return "OM";
+                return "OMN";
             case "크로아티아":
-                return "HR";
+                return "HRV";
             case "오스트레일리아":
-                return "AU";
+                return "AUS";
             case "오스트리아":
-                return "A";
+                return "AUT";
             case "쿠웨이트":
-                return "KW";
+                return "KWT";
             case "독일":
-                return "D";
+                return "DEU";
             case "베트남":
-                return "VN";
+                return "VNM";
             case "프랑스":
-                return "F";
+                return "FRA";
             case "마카오":
-                return "MO";
+                return "MAC";
             case "이라크":
                 return "IRQ";
             case "영국":
-                return "GB";
+                return "GBR";
             case "아랍에미리트":
-                return "AE";
+                return "ARE";
             case "캐나다":
-                return "CA";
+                return "CAN";
             case "이탈리아":
-                return "I";
+                return "ITA";
             case "필리핀":
-                return "PH";
+                return "PHL";
             case "인도":
                 return "IND";
             case "러시아":
                 return "RUS";
             case "스페인":
-                return "E";
+                return "ESP";
             case "스웨덴":
-                return "S";
+                return "SWE";
             case "에스토니아":
                 return "EST";
             case "북마케도니아":
-                return "MK";
+                return "MKD";
             case "덴마크":
-                return "DK";
+                return "DNK";
             case "이스라엘":
-                return "IS";
+                return "ISR";
             case "파키스탄":
-                return "PK";
+                return "PAK";
             case "레바논":
-                return "LB";
+                return "LBN";
             case "네덜란드":
-                return "NL";
+                return "NLD";
             case "네팔":
-                return "NP";
+                return "NPL";
             case "벨기에":
-                return "B";
+                return "BEL";
             case "스리랑카":
-                return "LK";
+                return "LKA";
             case "캄보디아":
-                return "KH";
+                return "KHM";
             case "핀란드":
-                return "AI";
+                return "FIN";
             case "이집트":
-                return "EG";
+                return "EGY";
             case "조지아":
-                return "GE";
+                return "GEO";
             case "루마니아":
-                return "RO";
+                return "ROU";
             case "노르웨이":
-                return "N";
+                return "NOR";
             case "그리스":
-                return "GR";
+                return "GRC";
             case "브라질":
-                return "BR";
+                return "BRA";
             case "알제리":
-                return "DZ";
+                return "DZA";
             case "스위스":
-                return "CH";
+                return "CHE";
             case "아프가니스탄":
-                return "AF";
+                return "AFG";
             case "멕시코":
-                return "MX";
+                return "MEX";
             case "아제르바이잔":
-                return "AZ";
+                return "AZE";
             case "체코":
-                return "CZ";
+                return "CZE";
             case "아르메니아":
                 return "ARM";
             case "벨라루스":
-                return "BY";
+                return "BLR";
             case "도미니카 공화국":
-                return "DO";
+                return "DOM";
             case "에콰도르":
-                return "EC";
+                return "ECU";
             case "아이슬란드":
-                return "IS";
+                return "ISL";
             case "아일랜드":
                 return "IRL";
             case "리투아니아":
-                return "LT";
+                return "LTU";
             case "룩셈부르크":
-                return "L";
+                return "LUX";
+            case "모나코":
+                return "MCO";
             case "뉴질랜드":
-                return "NZ";
+                return "NZL";
             case "나이지리아":
-                return "NG";
+                return "NGA";
             case "카타르":
-                return "QA";
+                return "QAT";
+            case "산마리노":
+                return "SMR";
             case "인도네시아":
-                return "INDO";
+                return "IDN";
             case "포르투갈":
-                return "P";
+                return "PRT";
+            case "안도라":
+                return "AND";
             case "요르단":
-                return "J";
+                return "JOR";
             case "라트비아":
-                return "LV";
+                return "LVA";
             case "모로코":
-                return "MA";
+                return "MAR";
             case "사우디아라비아":
-                return "SA";
+                return "SAU";
             case "세네갈":
-                return "SN";
+                return "SEN";
             case "튀니지":
-                return "TN";
+                return "TUN";
             case "아르헨티나":
-                return "AR";
+                return "ARG";
             case "칠레":
-                return "CL";
+                return "CHL";
+            case "리히텐슈타인":
+                return "LIE";
             case "우크라이나":
-                return "UA";
+                return "UKR";
             case "합계":
                 return "total";
             default:
