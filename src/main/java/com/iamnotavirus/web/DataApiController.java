@@ -123,6 +123,7 @@ public class DataApiController {
             case "국제 운송수단[a][b](다이아몬드 프린세스호)":
             case "국제 운송수단":
             case "국제 운송":
+            case "다이아몬드 프린세스":
                 return "Diamond Princess Cruise";
             case "일본[b]":
             case "일본":
