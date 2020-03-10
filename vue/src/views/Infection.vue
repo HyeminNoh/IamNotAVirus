@@ -6,8 +6,7 @@
                 <l-map
                         :center="[35, 0]"
                         :zoom="1.3"
-                        style="height: 400px;"
-                        :options="{zoomControl: false}">
+                        style="height: 400px;">
                     <l-choropleth-layer
                             ref="my-choropleth-layer"
                             :data="statusItems"
@@ -75,16 +74,16 @@
                 statusItems: [],
                 fields: [],
                 isHidden: false,
-                sortBy: 'infected',
-                sortDesc: true
+                sortBy: 'no',
+                sortDesc: false
 
             }
         },
         methods:{
             rowClass(item, type) {
                 if (!item || type !== 'row') return;
-                if (item.country === '대한민국') return 'table-warning';
-                if (item.country === '중국') return 'table-danger';
+                if (item.no === '1' || item.no === '2' || item.no === '3') return 'table-warning';
+                if (item.no === '0') return 'table-danger';
             },
             getData(){
                 axios.get('/status/data',
@@ -130,10 +129,6 @@
                         {
                             key: 'restore',
                             label: this.$t('infection.restore-label')
-                        },
-                        {
-                            key: 'sus',
-                            label: this.$t('infection.sus-label')
                         }
                     ]
                 }
@@ -164,10 +159,6 @@
                         {
                             key: 'restore',
                             label: this.$t('infection.restore-label')
-                        },
-                        {
-                            key: 'sus',
-                            label: this.$t('infection.sus-label')
                         }
                     ]
                 }
