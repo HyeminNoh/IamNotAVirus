@@ -18,7 +18,7 @@
 * 전세계 확진자 분포지도
     * [위키피디아 - 나라별 코로나바이러스감염증-19 유행](https://ko.wikipedia.org/wiki/%EB%82%98%EB%9D%BC%EB%B3%84_%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4%EA%B0%90%EC%97%BC%EC%A6%9D-19_%EC%9C%A0%ED%96%89)활용
     
-    * 20.03.09까지 활용
+    * 20.03.09까지 활용  
     ~~* [코로나 바이러스 정보 제공 API 1.0](http://happycastle.club/) 활용~~
     
 ### 3. 결과 화면
