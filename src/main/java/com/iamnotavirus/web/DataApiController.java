@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.internal.$Gson$Preconditions;
 import com.iamnotavirus.util.WebCrawler;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.nodes.Element;
@@ -74,6 +75,8 @@ public class DataApiController {
         //return elements.html();
     }
 
+    /* api가 업데이트 되지 않아 제외시킴
+
     @ResponseBody
     @RequestMapping("/status/data")
     public Object infectionDataResponse() throws Exception{
@@ -113,23 +116,57 @@ public class DataApiController {
         return gson.toJson(returnArray);
         //return gson.toJson(res.getBody());
     }
+     */
+
+    @ResponseBody
+    @RequestMapping("/status/data")
+    public Object infectionDataResponse() throws Exception {
+        Elements globeElements = new WebCrawler().getInfectionInfoGlobe();
+
+        Gson gson = new Gson();
+        //JsonArray 선언
+        JsonArray returnArray = new JsonArray();
+        Elements globe = globeElements.select("tr");
+
+        for(int i=2; i<globe.size()-3; i++){
+            JsonObject globeObject = new JsonObject();
+
+            String country = globe.get(i).select("th a").text();
+            if(country.contains("[")){
+                country = country.substring(0, country.indexOf("[")-1);
+            }
+
+            String[] data = globe.get(i).select("td").text().replace(",","").split(" ");
+            String infected = data[0];
+            String die = data[1];
+            String restore = data[2];
+            globeObject.addProperty("no",String.valueOf(i-2));
+            globeObject.addProperty("country", country);
+            globeObject.addProperty("engCountry",toEng(country));
+            globeObject.addProperty("die", die);
+            globeObject.addProperty("infected", infected);
+            globeObject.addProperty("restore", restore);
+            globeObject.addProperty("ISO_A3", postalCheck(country));
+
+            returnArray.add(globeObject);
+        }
+        return gson.toJson(returnArray);
+    }
 
     public String toEng(String country){
         switch (country){
             case "대한민국":
                 return "South Korea";
             case "중국":
+            case "중국 대륙":
                 return "China";
-            case "국제 운송수단[a][b](다이아몬드 프린세스호)":
             case "국제 운송수단":
             case "국제 운송":
             case "다이아몬드 프린세스":
                 return "Diamond Princess Cruise";
-            case "일본[b]":
             case "일본":
                 return "Japan";
             case "미국":
-            case "미국[10]":
                 return "USA";
             case "싱가포르":
                 return "Singapore";
@@ -285,8 +322,60 @@ public class DataApiController {
                 return "Liechtenstein";
             case "우크라이나":
                 return "Ukraine";
-            case "합계":
-                return "total";
+            case "팔레스타인":
+                return "Palestine";
+            case "슬로베니아":
+                return "Slovenia";
+            case "폴란드":
+                return "Poland";
+            case "헝가리":
+                return "Hungary";
+            case "알바니아":
+                return "Albania";
+            case "코스타리카":
+                return "Costa Rica";
+            case "페루":
+                return "Peru";
+            case "슬로바키아":
+                return "Slovakia";
+            case "남아프리카 공화국":
+                return "South Africa";
+            case "브루나이":
+                return "Brunei";
+            case "몰디브":
+                return "Maldives";
+            case "보스니아 헤르체고비나":
+                return "Bosnia and Herzegovina";
+            case "불가리아":
+                return "Bulgaria";
+            case "몰타":
+                return "Malta";
+            case "방글라데시":
+                return "Bangladesh";
+            case "콜롬비아":
+                return "Colombia";
+            case "부르키나파소":
+                return "Burkina Faso";
+            case "카메룬":
+                return "Cameroon";
+            case "키프로스":
+                return "Cyprus";
+            case "세르비아":
+                return "Serbia";
+            case "부탄":
+                return "Bhutan";
+            case "몰도바":
+                return "Moldova";
+            case "몽골":
+                return "Mongolia";
+            case "파나마":
+                return "Panama";
+            case "파라과이":
+                return "Paraguay";
+            case "토고":
+                return "Togo";
+            case "바티칸 시국":
+                return "Vatican";
             default:
                 return "";
         }
@@ -297,11 +386,10 @@ public class DataApiController {
             case "대한민국":
                 return "KOR";
             case "중국":
+            case "중국 대륙":
                 return "CHN";
-            case "일본[b]":
             case "일본":
                 return "JPN";
-            case "미국[10]":
             case "미국":
                 return "USA";
             case "싱가포르":
@@ -316,7 +404,6 @@ public class DataApiController {
             case "말레이시아":
                 return "MYS";
             case "이란":
-            case "이란[a]":
                 return "IRN";
             case "오만":
                 return "OMN";
@@ -456,8 +543,60 @@ public class DataApiController {
                 return "LIE";
             case "우크라이나":
                 return "UKR";
-            case "합계":
-                return "total";
+            case "팔레스타인":
+                return "PSE";
+            case "슬로베니아":
+                return "SVN";
+            case "폴란드":
+                return "POL";
+            case "헝가리":
+                return "HUN";
+            case "알바니아":
+                return "ALB";
+            case "코스타리카":
+                return "CRI";
+            case "페루":
+                return "PER";
+            case "슬로바키아":
+                return "SVK";
+            case "남아프리카 공화국":
+                return "ZAF";
+            case "브루나이":
+                return "BRN";
+            case "몰디브":
+                return "MDV";
+            case "보스니아 헤르체고비나":
+                return "BIH";
+            case "불가리아":
+                return "BGR";
+            case "몰타":
+                return "MLT";
+            case "방글라데시":
+                return "BGD";
+            case "콜롬비아":
+                return "COL";
+            case "부르키나파소":
+                return "BFA";
+            case "카메룬":
+                return "CMR";
+            case "키프로스":
+                return "-99";
+            case "세르비아":
+                return "SRB";
+            case "부탄":
+                return "BTN";
+            case "몰도바":
+                return "MDA";
+            case "몽골":
+                return "MNG";
+            case "파나마":
+                return "PAN";
+            case "파라과이":
+                return "PRY";
+            case "토고":
+                return "TGO";
+            case "바티칸 시국":
+                return "VAT";
             default:
                 return "";
         }
