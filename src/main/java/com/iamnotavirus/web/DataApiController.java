@@ -376,6 +376,18 @@ public class DataApiController {
                 return "Togo";
             case "바티칸 시국":
                 return "Vatican";
+            case "볼리비아":
+                return "Bolivia";
+            case "온두라스":
+                return "Honduras";
+            case "콩고 민주 공화국":
+                return "Democratic Republic of the Congo";
+            case "코트디부아르":
+                return "Ivory Coast";
+            case "자메이카":
+                return "Jamaica";
+            case "터키:":
+                return "Turkey";
             default:
                 return "";
         }
@@ -597,6 +609,18 @@ public class DataApiController {
                 return "TGO";
             case "바티칸 시국":
                 return "VAT";
+            case "볼리비아":
+                return "BOL";
+            case "온두라스":
+                return "HND";
+            case "콩고 민주 공화국":
+                return "COD";
+            case "코트디부아르":
+                return "CIV";
+            case "자메이카":
+                return "JAM";
+            case "터키:":
+                return "TUR";
             default:
                 return "";
         }
