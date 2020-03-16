@@ -387,8 +387,72 @@ public class DataApiController {
                 return "Ivory Coast";
             case "자메이카":
                 return "Jamaica";
-            case "터키:":
+            case "터키":
                 return "Turkey";
+            case "베네수엘라":
+                return "Venezuela";
+            case "코소":
+                return "Corso";
+            case "카자흐스탄":
+                return "Kazakhstan";
+            case "가":
+                return "Ghana";
+            case "북키프로스":
+                return "Turkish Republic of Northern Cyprus";
+            case "우루과이":
+                return "Uruguay";
+            case "르완다":
+                return "Rwanda";
+            case "가이아나":
+                return "Guyana";
+            case "쿠바":
+                return "Cuba";
+            case "에티오피아":
+                return "Ethiopia";
+            case "우주베키스탄":
+                return "Uzbekistan";
+            case "케냐":
+                return "Kenya";
+            case "나미비아":
+                return "Namibia";
+            case "세인트루시아":
+                return "Saint Lucia";
+            case "세이셸":
+                return "Seychelles";
+            case "트리니다드토바고":
+                return "Trinidad and Tobago";
+            case "과테말라":
+                return "Guatemala";
+            case "수단":
+                return "Sudan";
+            case "엔티가 바부다":
+                return "Antigua and Barbuda";
+            case "바하마":
+                return "Bahamas";
+            case "중앙 아프리카 공화국":
+                return "Central African Republic";
+            case "적도 기니":
+                return "Equatorial Guinea";
+            case "에스와티니":
+                return "Kingdom of eSwatini";
+            case "가봉":
+                return "Gabon";
+            case "기니":
+                return "Guinea";
+            case "라이베리아":
+                return "Liberia";
+            case "모리타니":
+                return "Mauritania";
+            case "콩고 공화국":
+                return "Congo";
+            case "세인트빈센트 그레나딘":
+                return "St. Vincent and the Grenadines";
+            case "소말리아":
+                return "Somali";
+            case "수리남":
+                return "Suriname";
+            case "탄자니아":
+                return "Tanzania";
             default:
                 return "";
         }
@@ -621,8 +685,68 @@ public class DataApiController {
                 return "CIV";
             case "자메이카":
                 return "JAM";
-            case "터키:":
+            case "터키":
                 return "TUR";
+            case "베네수엘라":
+                return "VEN";
+            case "카자흐스탄":
+                return "KAZ";
+            case "가":
+                return "GHA";
+            case "북키프로스":
+                return "-99";
+            case "우루과이":
+                return "URY";
+            case "르완다":
+                return "RWA";
+            case "가이아나":
+                return "GUY";
+            case "쿠바":
+                return "CUB";
+            case "에티오피아":
+                return "ETH";
+            case "우주베키스탄":
+                return "UZB";
+            case "케냐":
+                return "KEN";
+            case "나미비아":
+                return "NAM";
+            case "세인트루시아":
+                return "LCA";
+            case "세이셸":
+                return "SYC";
+            case "트리니다드토바고":
+                return "TTO";
+            case "과테말라":
+                return "GTM";
+            case "수단":
+                return "SSD";
+            case "엔티가 바부다":
+                return "ATG";
+            case "바하마":
+                return "BHS";
+            case "중앙 아프리카 공화국":
+                return "CAF";
+            case "적도 기니":
+                return "GNQ";
+            case "가봉":
+                return "GAB";
+            case "기니":
+                return "GIN";
+            case "라이베리아":
+                return "LBR";
+            case "모리타니":
+                return "MRT";
+            case "콩고 공화국":
+                return "COD";
+            case "세인트빈센트 그레나딘":
+                return "VCT";
+            case "소말리아":
+                return "SOM";
+            case "수리남":
+                return "SUR";
+            case "탄자니아":
+                return "TZA";
             default:
                 return "";
         }
