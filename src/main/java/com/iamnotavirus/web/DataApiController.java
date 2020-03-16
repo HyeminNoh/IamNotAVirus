@@ -128,7 +128,7 @@ public class DataApiController {
         JsonArray returnArray = new JsonArray();
         Elements globe = globeElements.select("tr");
 
-        for(int i=2; i<globe.size()-3; i++){
+        for(int i=3; i<globe.size()-3; i++){
             JsonObject globeObject = new JsonObject();
 
             String country = globe.get(i).select("th a").text();
@@ -140,7 +140,7 @@ public class DataApiController {
             String infected = data[0];
             String die = data[1];
             String restore = data[2];
-            globeObject.addProperty("no",String.valueOf(i-2));
+            globeObject.addProperty("no",String.valueOf(i-3));
             globeObject.addProperty("country", country);
             globeObject.addProperty("engCountry",toEng(country));
             globeObject.addProperty("die", die);
@@ -159,6 +159,7 @@ public class DataApiController {
                 return "South Korea";
             case "중국":
             case "중국 대륙":
+            case "중국 (대륙)":
                 return "China";
             case "국제 운송수단":
             case "국제 운송":
@@ -399,6 +400,7 @@ public class DataApiController {
                 return "KOR";
             case "중국":
             case "중국 대륙":
+            case "중국 (대륙)":
                 return "CHN";
             case "일본":
                 return "JPN";

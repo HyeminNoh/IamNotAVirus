@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class WebCrawler {
     public Elements getInfectionInfoGlobe() throws Exception{
-        Document document = new WebCrawler().getCrawlingResult("https://ko.wikipedia.org/wiki/%EB%82%98%EB%9D%BC%EB%B3%84_%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4%EA%B0%90%EC%97%BC%EC%A6%9D-19_%EC%9C%A0%ED%96%89");
+        Document document = new WebCrawler().getCrawlingResult("https://ko.wikipedia.org/wiki/%EB%82%98%EB%9D%BC%EB%B3%84_%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4%EA%B0%90%EC%97%BC%EC%A6%9D-19_%EB%B2%94%EC%9C%A0%ED%96%89");
         Elements el = document.select("#bodyContent #mw-content-text table.wikitable");
         return el;
     }
