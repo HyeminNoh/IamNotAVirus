@@ -395,7 +395,7 @@ public class DataApiController {
                 return "Corso";
             case "카자흐스탄":
                 return "Kazakhstan";
-            case "가":
+            case "가나":
                 return "Ghana";
             case "북키프로스":
                 return "Turkish Republic of Northern Cyprus";
@@ -691,7 +691,7 @@ public class DataApiController {
                 return "VEN";
             case "카자흐스탄":
                 return "KAZ";
-            case "가":
+            case "가나":
                 return "GHA";
             case "북키프로스":
                 return "-99";
