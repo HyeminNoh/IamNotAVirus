@@ -27,14 +27,28 @@
                     </l-choropleth-layer>
                 </l-map>
             </div>
-            <b-row>
+            <b-row style="text-align: center;">
                 <div id="tableBtn">
                     <b-button block variant="outline-secondary" v-if="!isHidden" v-on:click="isHidden = !isHidden">{{$t('infection.hidden-table')}}</b-button>
                     <b-button block variant="outline-danger" v-if="isHidden" v-on:click="isHidden = !isHidden">{{$t('infection.show-table')}}</b-button>
                 </div>
-                <div v-if="!isHidden" id="infectionTable" >
+                <div v-if="!isHidden" id="table-div" >
+                    <b-pagination
+                        v-model="currentPage"
+                        align="fill"
+                        :total-rows="rows"
+                        :per-page="perPage"
+                        :first-text="First"
+                        :prev-text="Prev"
+                        :next-text="Next"
+                        :last-text="Last"
+                        aria-controls="infectionTable">
+                    </b-pagination>
                     <b-table bordered outlined hover
+                             id="infectionTable"
                              :items="statusItems"
+                             :per-page="perPage"
+                             :current-page="currentPage"
                              :fields="fields"
                              head-variant="light"
                              :tbody-tr-class="rowClass"
@@ -72,6 +86,13 @@
                 },
                 currentStrokeColor: '3d3213',
                 statusItems: [],
+                rows: 0,
+                perPage: 0,
+                currentPage: 1,
+                First: "",
+                Prev: "",
+                Next: "",
+                Last: "",
                 fields: [],
                 isHidden: false,
                 sortBy: 'no',
@@ -95,7 +116,13 @@
                     })
                     .then(response => {
                         this.statusItems = response.data;
-                        //console.log(response.data);
+                        this.rows = response.data.length;
+                        if(response.data.length%10===0){
+                            this.perPage = this.statusItems.length/10;
+                        }
+                        else{
+                            this.perPage = this.statusItems.length/10+1;
+                        }
                     })
                     .catch(e => {
                         console.log('error : ', e)
@@ -103,6 +130,10 @@
             },
             setFields(){
                 if(this.$i18n.locale==="ko"){
+                    this.First = "처음";
+                    this.Prev = "이전";
+                    this.Next = "다음";
+                    this.Last = "마지막";
                     this.titleKey = "country";
                     this.value = {
                         key: "infected",
@@ -133,6 +164,10 @@
                     ]
                 }
                 if(this.$i18n.locale==="en"){
+                    this.First = "First";
+                    this.Prev = "Prev";
+                    this.Next = "Next";
+                    this.Last = "Last";
                     this.titleKey = "engCountry";
                     this.value = {
                         key: "infected",
@@ -193,7 +228,7 @@
     #map{
         margin-bottom: 30px;
     }
-    #infectionTable{
+    #table-div{
         width: 100%;
     }
     #tableBtn{
