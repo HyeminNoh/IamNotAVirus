@@ -22,11 +22,11 @@
 
 ### 3. 사용 기술 스택
 
-| Category | **Backend** | **Frontend** |  
+| Category | Backend | Frontend |  
 |:---:|:---:|:---:|  
-| **Language** | Java | Javascript |  
-| **Framework** | Spring-Boot | Vue.js |  
-| **IDE** | IntelliJ |  |  
+| Language | Java | Javascript |  
+| Framework | Spring-Boot | Vue.js |  
+| IDE | IntelliJ |  |  
 
 ### 4. 결과 화면
 
