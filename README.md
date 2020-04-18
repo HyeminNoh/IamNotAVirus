@@ -1,6 +1,6 @@
 # I am Not A Virus - Web Project
 
-🖱️ [#IamNotAVirus-Campaign](http://www.iamnotavirus-campaign.com) Click!
+👉 [#IamNotAVirus-Campaign](http://www.iamnotavirus-campaign.com) Click!
 
 ### 1. 구현 배경
 
@@ -11,17 +11,24 @@
 모든 아시안들이 코로나를 보균했을거라는 생각은 인종 차별적인 생각입니다.  
 신종 코로나에 대해 올바르게 인식하고 예방법을 널리 알리고자 사이트를 기획하게 되었습니다.  
 
-### 2. 구현 내용
+### 2. 구현 기능
 
 * 신종 코로나 설명, 예방법
 * 신종 코로나에 의한 인종차별 기사 크롤링
 * 전세계 확진자 분포지도
-    * [위키피디아 - 나라별 코로나바이러스감염증-19 유행](https://ko.wikipedia.org/wiki/%EB%82%98%EB%9D%BC%EB%B3%84_%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4%EA%B0%90%EC%97%BC%EC%A6%9D-19_%EC%9C%A0%ED%96%89)활용
-    
-    * 20.03.09까지 활용  
-    ~~[코로나 바이러스 정보 제공 API 1.0](http://happycastle.club/) 활용~~
-    
-### 3. 결과 화면
+    * [코로나 바이러스 정보 제공 API](http://happycastle.club/)활용
+    * 한국어 정보만 제공하는 API를 활용했기 때문에 영어 국가명은 직접 case문으로 데이터를 지정해 추가해두었음
+      영어 국가이름이 제공되지 않는 나라는 신규로 추가된 나리이기 때문에 차후 추가할 예정
+
+### 3. 사용 기술 스택
+
+| Category | **Backend** | **Frontend** |  
+|:---:|:---:|:---:|  
+| **Language** | Java | Javascript |  
+| **Framework** | Spring-Boot | Vue.js |  
+| **IDE** | IntelliJ |  |  
+
+### 4. 결과 화면
 
 #### 1) 메인 화면
 
