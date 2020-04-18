@@ -75,7 +75,7 @@ public class DataApiController {
         //return elements.html();
     }
 
-    /* api가 업데이트 되지 않아 제외시킴
+    /* api 활용 */
 
     @ResponseBody
     @RequestMapping("/status/data")
@@ -102,6 +102,7 @@ public class DataApiController {
             JsonObject returnObject = new JsonObject();
             JsonElement el = convertedObject.get(i);
             String country = el.getAsJsonObject().get("country").getAsString();
+            returnObject.addProperty("no", String.valueOf(i));
             returnObject.addProperty("country", country);
             returnObject.addProperty("engCountry",toEng(country));
             returnObject.addProperty("die", el.getAsJsonObject().get("die").getAsString());
@@ -116,8 +117,9 @@ public class DataApiController {
         return gson.toJson(returnArray);
         //return gson.toJson(res.getBody());
     }
-     */
 
+
+    /*
     @ResponseBody
     @RequestMapping("/status/data")
     public Object infectionDataResponse() throws Exception {
@@ -152,6 +154,7 @@ public class DataApiController {
         }
         return gson.toJson(returnArray);
     }
+    */
 
     public String toEng(String country){
         switch (country){
