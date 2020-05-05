@@ -75,7 +75,7 @@ public class DataApiController {
         //return elements.html();
     }
 
-    /* api 활용 */
+    /* api 활용
 
     @ResponseBody
     @RequestMapping("/status/data")
@@ -118,8 +118,9 @@ public class DataApiController {
         //return gson.toJson(res.getBody());
     }
 
+    */
 
-    /*
+
     @ResponseBody
     @RequestMapping("/status/data")
     public Object infectionDataResponse() throws Exception {
@@ -154,7 +155,7 @@ public class DataApiController {
         }
         return gson.toJson(returnArray);
     }
-    */
+
 
     public String toEng(String country){
         switch (country){
