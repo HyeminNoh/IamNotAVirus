@@ -1,7 +1,5 @@
 # I am Not A Virus - Web Project
 
-👉 [#IamNotAVirus-Campaign](http://www.iamnotavirus-campaign.com) Click!
-
 ### 1. 구현 배경
 
 **`#iamnotavirus`운동에 대해 아시나요?**  
